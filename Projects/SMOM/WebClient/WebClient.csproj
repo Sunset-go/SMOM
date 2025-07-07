@@ -1,0 +1,274 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+	<PropertyGroup Label="Globals">
+		<SccProjectName>SAK</SccProjectName>
+		<SccProvider>SAK</SccProvider>
+		<SccAuxPath>SAK</SccAuxPath>
+		<SccLocalPath>SAK</SccLocalPath>
+	</PropertyGroup>
+
+	<PropertyGroup>
+		<TargetFramework>netcoreapp3.1</TargetFramework>
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+		<ErrorOnDuplicatePublishOutputFiles>false</ErrorOnDuplicatePublishOutputFiles>
+		<RunPostBuildEvent>Always</RunPostBuildEvent>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<Compile Remove="logs\**" />
+		<Compile Remove="wwwroot\stimulsoft\**" />
+		<Content Remove="logs\**" />
+		<Content Remove="wwwroot\stimulsoft\**" />
+		<EmbeddedResource Remove="logs\**" />
+		<EmbeddedResource Remove="wwwroot\stimulsoft\**" />
+		<None Remove="logs\**" />
+		<None Remove="wwwroot\stimulsoft\**" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Content Remove="wwwroot\css\Fmea\treepanel.css" />
+	  <Content Remove="wwwroot\Scripts\Demo\model\Company.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\model\Readme.md" />
+	  <Content Remove="wwwroot\Scripts\Demo\ModuleBase.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\ModuleTestPanel.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\PortalColumn.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\PortalDropZone.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\PortalPanel.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\Portlet.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\StockModule.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\store\Markets.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\store\Readme.md" />
+	  <Content Remove="wwwroot\Scripts\Demo\store\Stocks.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\view\markets\Markets.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\view\Readme.md" />
+	  <Content Remove="wwwroot\Scripts\Demo\view\stocks\Stocks.js" />
+	  <Content Remove="wwwroot\Scripts\Demo\view\stocks\StocksController.js" />
+	  <Content Remove="wwwroot\Scripts\EventBus.js" />
+	  <Content Remove="wwwroot\Templates\产品导入管理模板.xlsx" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<Compile Include="..\..\..\Common\WebClient\Configuration.cs" Link="Configuration.cs" />
+		<Compile Include="..\..\..\Common\WebClient\HostService.cs" Link="HostService.cs" />
+		<Compile Include="..\..\..\Common\WebClient\Program.cs" Link="Program.cs" />
+		<Compile Include="..\..\..\Common\WebClient\Startup.cs" Link="Startup.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<None Include="..\..\..\Common\WebClient\log4net.config" Link="log4net.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<EmbeddedResource Include="wwwroot\css\Fmea\treepanel.css">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\model\Company.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\model\Readme.md" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\ModuleBase.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\ModuleTestPanel.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\PortalColumn.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\PortalDropZone.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\PortalPanel.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\Portlet.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\StockModule.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\store\Markets.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\store\Readme.md" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\store\Stocks.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\view\markets\Markets.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\view\Readme.md" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\view\stocks\Stocks.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\Demo\view\stocks\StocksController.js" />
+		<EmbeddedResource Include="wwwroot\Scripts\EventBus.js">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</EmbeddedResource>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\FMEA风险评估标准导入模板.xlsx" Link="wwwroot\Templates\FMEA风险评估标准导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\OQC产品分类检验标准导入模板.xlsx" Link="wwwroot\Templates\OQC产品分类检验标准导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\OQC产品检验标准导入模板.xlsx" Link="wwwroot\Templates\OQC产品检验标准导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\PQC产品检验标准导入模板.xlsx" Link="wwwroot\Templates\PQC产品检验标准导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\PQC分类检验标准模板.xlsx" Link="wwwroot\Templates\PQC分类检验标准模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<Resource Include="..\..\..\Common\WebClient\wwwroot\Templates\产品机型导入模板.xlsx" Link="wwwroot\Templates\产品机型导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Resource>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\分类检验标准导入模板.xlsx" Link="wwwroot\Templates\分类检验标准导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\单体条码导入模板.xls" Link="wwwroot\Templates\单体条码导入模板.xls">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\工单条码导入模板.xls" Link="wwwroot\Templates\工单条码导入模板.xls">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\工艺路线导入模板.xlsx" Link="wwwroot\Templates\工艺路线导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\库位巷道关系导入模板.xlsx" Link="wwwroot\Templates\库位巷道关系导入模板.xlsx">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\手工录入数据导入模板(计数型).xlsx" />
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\手工录入数据导入模板(计量型).xlsx" />
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\抽样方案导入模板.xlsx" Link="wwwroot\Templates\抽样方案导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\料号检验标准导入模板.xlsx" Link="wwwroot\Templates\料号检验标准导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\机型技能导入模板.xlsx" Link="wwwroot\Templates\机型技能导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\物料替代规则导入模板.xlsx" Link="wwwroot\Templates\物料替代规则导入模板.xlsx">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\红牌ReelID导入模板.xlsx" Link="wwwroot\Templates\红牌ReelID导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\经验库导入模板.xlsx" Link="wwwroot\Templates\经验库导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\缺陷代码导入模板.xlsx" Link="wwwroot\Templates\缺陷代码导入模板.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Include="..\..\..\Common\WebClient\wwwroot\Templates\路径设备关系.xlsx" Link="wwwroot\Templates\路径设备关系.xlsx">
+			<CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</None>
+		<None Include="wwwroot\images\Fmea\add-512.webp" />
+		<None Include="wwwroot\images\Fmea\icon-ios7-minus-outline-512.webp" />
+		<None Include="wwwroot\images\Fmea\lock.webp" />
+		<None Include="wwwroot\images\Fmea\notifications.webp" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.SignalR.Protocols.NewtonsoftJson" Version="3.1.5" />
+    <PackageReference Include="SIE" Version="9.1.55" />
+    <PackageReference Include="SIE.Alert.Job" Version="9.1.55" />
+    <PackageReference Include="SIE.Common" Version="9.1.55" />
+    <PackageReference Include="SIE.Messages" Version="9.1.55" />
+    <PackageReference Include="SIE.MQ" Version="9.1.55" />
+    <PackageReference Include="SIE.ORM.MappingColumn" Version="9.1.55" />
+    <PackageReference Include="SIE.Queue" Version="9.1.55" />
+    <PackageReference Include="SIE.Script" Version="9.1.55" />
+    <PackageReference Include="SIE.Session.Redis" Version="9.1.55" />
+    <PackageReference Include="SIE.SimpleListReport" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Alert" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.DashBoard" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Diagnostics" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Localization" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Mda" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Print" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.RBAC" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.ReportServerCore" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.ReportServerCore.Mvc" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Schedule" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Senders" Version="9.1.55" />
+    <PackageReference Include="Topshelf" Version="4.2.1" />
+    <PackageReference Include="Topshelf.Log4Net" Version="4.2.1" />
+  </ItemGroup>
+
+
+	<ItemGroup>
+		<Content Update="appsettings.Development.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="appsettings.json">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="log4net.config">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\css\WorkBenchStyle.css">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\css\WorkFlows\flow-task.css">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\Fmea\forcuslock.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\Fmea\lock.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\Fmea\notifications.png">
+		  <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\collapse.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\disable.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\doing.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\done.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\enable.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\expand.png">
+		  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\stop.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+		<Content Update="wwwroot\images\WorkFlows\todo.png">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</Content>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<None Update="..\..\..\Common\WebClient\wwwroot\Templates\手工录入数据导入模板%28计数型%29.xlsx" Link="wwwroot\Templates\手工录入数据导入模板%28计数型%29.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="..\..\..\Common\WebClient\wwwroot\Templates\手工录入数据导入模板%28计量型%29.xlsx" Link="wwwroot\Templates\手工录入数据导入模板%28计量型%29.xlsx">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="Dockerfile">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+		<None Update="_运行.cmd">
+			<CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+		</None>
+	</ItemGroup>
+
+
+	<ItemGroup>
+		<Folder Include="wwwroot\Bartender\" />
+		<Folder Include="wwwroot\Bartender\" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ProjectReference Include="..\..\..\Modules\SIE.ZYF\SIE.Web.ZYF\SIE.Web.ZYF.csproj" />
+	</ItemGroup>
+
+
+	<ItemGroup>
+	  <ApplicationDefinition Include="wwwroot\Templates\产品导入管理模板.xlsx">
+	    <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	  </ApplicationDefinition>
+	</ItemGroup>
+
+
+	<ProjectExtensions>
+		<VisualStudio>
+			<UserProperties appsettings_1json__JSONSchema="" appsettings_1Development_1json__JSONSchema="" />
+		</VisualStudio>
+	</ProjectExtensions>
+
+
+	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
+	  <Exec Command="COPY /Y &quot;$(SolutionDir)packages\System.Data.SqlClient.dll&quot; &quot;$(ProjectDir)$(OutDir)&quot;" />
+	</Target>
+
+</Project>

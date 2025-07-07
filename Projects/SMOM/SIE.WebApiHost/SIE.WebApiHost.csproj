@@ -1,0 +1,89 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup Label="Globals">
+    <SccProjectName>SAK</SccProjectName>
+    <SccProvider>SAK</SccProvider>
+    <SccAuxPath>SAK</SccAuxPath>
+    <SccLocalPath>SAK</SccLocalPath>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <RunPostBuildEvent>Always</RunPostBuildEvent>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\..\Common\SIE.WebApiHost\Configuration.cs" Link="Configuration.cs" />
+    <Compile Include="..\..\..\Common\SIE.WebApiHost\Controllers\DataPortalController.cs" Link="Controllers\DataPortalController.cs" />
+    <Compile Include="..\..\..\Common\SIE.WebApiHost\HostService.cs" Link="HostService.cs" />
+    <Compile Include="..\..\..\Common\SIE.WebApiHost\Program.cs" Link="Program.cs" />
+    <Compile Include="..\..\..\Common\SIE.WebApiHost\WebApiStartup.cs" Link="WebApiStartup.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\..\Common\SIE.WebApiHost\Dockerfile" Link="Dockerfile" />
+    <None Include="..\..\..\Common\SIE.WebApiHost\log4net.config" Link="log4net.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="..\..\..\Common\SIE.WebApiHost\_安装服务.bat" Link="_安装服务.bat" />
+    <None Include="..\..\..\Common\SIE.WebApiHost\_运行.cmd" Link="_运行.cmd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.1.16" />
+    <PackageReference Include="Microsoft.CodeAnalysis.Analyzers" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.11.0" />
+    <PackageReference Include="SIE" Version="9.1.55" />
+    <PackageReference Include="SIE.Alert.Job" Version="9.1.55" />
+    <PackageReference Include="SIE.Common" Version="9.1.55" />
+    <PackageReference Include="SIE.DashBoard" Version="9.1.55" />
+    <PackageReference Include="SIE.Diagnostics" Version="9.1.55" />
+    <PackageReference Include="SIE.Localization" Version="9.1.55" />
+    <PackageReference Include="SIE.Messages" Version="9.1.55" />
+    <PackageReference Include="SIE.ORM.MappingColumn" Version="9.1.55" />
+    <PackageReference Include="SIE.Print" Version="9.1.55" />
+    <PackageReference Include="SIE.Queue" Version="9.1.55" />
+    <PackageReference Include="SIE.ReportServerCore" Version="9.1.55" />
+    <PackageReference Include="SIE.Schedule" Version="9.1.55" />
+    <PackageReference Include="SIE.Script" Version="9.1.55" />
+    <PackageReference Include="SIE.ServerCore" Version="9.1.55" />
+    <PackageReference Include="Topshelf" Version="4.2.1" />
+    <PackageReference Include="Topshelf.Log4Net" Version="4.2.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Modules\SIE.ZYF\SIE.ZYF\SIE.ZYF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Dockerfile">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="_安装服务.bat">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="_运行.cmd">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="COPY /Y &quot;$(SolutionDir)packages\System.Data.SqlClient.dll&quot; &quot;$(ProjectDir)$(OutDir)&quot;" />
+  </Target>
+
+
+</Project>

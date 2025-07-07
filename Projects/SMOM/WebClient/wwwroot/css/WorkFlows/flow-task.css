@@ -1,0 +1,54 @@
+﻿/*#region 处理流程记录-标题 */
+.x-panel-header {
+    background: #F2F4F6;
+    border: 2px solid #c2c2c2;
+    border-bottom-width: 0px;
+}
+
+.x-panel-header-top {
+    padding: 5px 10px 5px 10px;
+}
+
+.x-panel-header .x-title {
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    font-weight: bold;
+    color: #157FCC;
+    border: 0px solid #DCE0E7;
+}
+
+.x-panel-header .x-tool-collapse-top {
+    background-image: url(/images/WorkFlows/collapse.png);
+    background-color: #F2F4F6;
+}
+
+.x-panel-header .x-tool-expand-bottom {
+    background-image: url(/images/WorkFlows/expand.png);
+    background-color: #F2F4F6;
+}
+
+/*#endregion */
+
+.record-content .x-form-display-field {
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #000000;
+}
+
+.record-content-trigger {
+    border: 0px;
+}
+
+.record-handler .x-form-display-field {
+    font-size: 14px;
+    font-family: Microsoft YaHei;
+    font-weight: 400;
+    color: #666666;
+}
+
+.task-record-card .x-panel-body {
+    background: #FFFFFF;
+    border: 2px solid #DCE0E7;
+    box-shadow: 0px 4px 6px 0px rgba(201, 201, 201, 0.23);
+}

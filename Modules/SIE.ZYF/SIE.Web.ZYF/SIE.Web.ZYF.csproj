@@ -1,0 +1,48 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Editors\ImageInlineEditor.js" />
+    <None Remove="ProductManages\Commands\DeleteProductManageCommand.js" />
+    <None Remove="ProductManages\Commands\ImportProductManageCommand.js" />
+    <None Remove="ProductManages\Commands\UpdateAttachmentCommand.js" />
+    <None Remove="Suppliers\Commands\SelectionMaterialsCommand.js" />
+    <None Remove="ProductManages\Commands\AddProductManageCommand.js" />
+    <None Remove="ProductManages\Commands\ReviewProductManageCommand.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ProductManages\Commands\DeleteProductManageCommand.js" />
+    <EmbeddedResource Include="ProductManages\Commands\SaveProductManageCommand.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Editors\ImageInlineEditor.js" />
+    <EmbeddedResource Include="ProductManages\Commands\ImportProductManageCommand.js" />
+    <EmbeddedResource Include="Suppliers\Commands\SelectionMaterialsCommand.js" />
+    <EmbeddedResource Include="ProductManages\Commands\AddProductManageCommand.js" />
+    <EmbeddedResource Include="ProductManages\Commands\EditProductManageCommand.js" />
+    <EmbeddedResource Include="ProductManages\Commands\ReviewProductManageCommand.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SIE.Web" Version="9.1.55" />
+    <PackageReference Include="SIE.Web.Common" Version="9.1.55" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SIE.ZYF\SIE.ZYF.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="ProductManages\Commands\DeleteProductManageCommand.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties productmanages_4commands_4addproductmanagecommand_1js__JsonSchema="https://mise.jdx.dev/schema/mise.json" /></VisualStudio></ProjectExtensions>
+
+</Project>
