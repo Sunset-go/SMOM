@@ -1,6 +1,7 @@
 ﻿using SIE.MetaModel.View;
 using SIE.Web.Common;
 using SIE.ZYF.Suppliers;
+using System;
 using State = SIE.Domain.State;
 
 namespace SIE.Web.ZYF.Suppliers
@@ -10,6 +11,8 @@ namespace SIE.Web.ZYF.Suppliers
 	/// </summary>
 	internal class SupplierViewConfig : WebViewConfig<Supplier>
 	{
+        public const string SupplierAttachDetailViewGroup = "SupplierAttachDetailViewGroup";
+
         ///<summary>
         /// 配置明细视图
         /// </summary>
@@ -133,7 +136,7 @@ namespace SIE.Web.ZYF.Suppliers
         protected override void ConfigView()
 		{
 			View.HasDelegate(Supplier.NameProperty);
-			View.UseDefaultCommands();
-		}
+            View.UseDefaultCommands();
+        }
     }
 }

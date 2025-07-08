@@ -25,7 +25,7 @@ namespace SIE.ZYF.ProductManages
             {
                 query.Where(p => p.Code.Contains(keyword) || p.Name.Contains(keyword));
             }
-            return query.ToList();
+            return query.ToList(pageingInfo, new EagerLoadOptions().LoadWithViewProperty());
         }
         /// <summary>
         /// 获取供应商对应的物料信息
@@ -40,20 +40,20 @@ namespace SIE.ZYF.ProductManages
             if (entity != null)
             {
                 var s = entity as ProductManage;
-                query.Exists<SupplierMaterials>((m, sm) => sm.Where(p=>p.MaterialId == m.Id && p.SupplierId == s.SupplierId));
+                query.Exists<SupplierMaterials>((m, sm) => sm.Where(p => p.MaterialId == m.Id && p.SupplierId == s.SupplierId));
                 if (keyword.IsNotEmpty())
                 {
                     query.Where(p => p.Code.Contains(keyword) || p.Name.Contains(keyword));
                 }
             }
-            var list = query.ToList();
+            var list = query.ToList(pageingInfo, new EagerLoadOptions().LoadWithViewProperty());
             return list;
         }
         /// <summary>
         /// 保存供应商物料信息
         /// </summary>
         /// <param name="providerMaterials">供应商物料</param>
-        public virtual void SaveProviderMaterial(EntityList<SupplierMaterials>supplierMaterials)
+        public virtual void SaveProviderMaterial(EntityList<SupplierMaterials> supplierMaterials)
         {
             RF.Save(supplierMaterials);
         }
@@ -64,20 +64,48 @@ namespace SIE.ZYF.ProductManages
         /// <param name="ModifyCount"></param>
         public virtual void UpdataModTimes(double id, int ModifyCount)
         {
+            ModifyCount += 1;
             DB.Update<ProductManage>()
                 .Where(p => p.Id == id) // 条件
-                .Set(p => p.ModifyCount, ModifyCount+1)  // 修改次数加1
+                .Set(p => p.ModifyCount, ModifyCount)  // 修改次数加1
                 .Execute();
         }
-        public virtual EntityList<ProductManage> GetProducManage(ProductManageCriteria criteria) 
+        /// <summary>
+        /// 获取产品信息
+        /// </summary>
+        /// <param name="criteria"></param>
+        /// <returns></returns>
+        public virtual EntityList<ProductManage> GetProducManage(ProductManageCriteria criteria)
         {
             var query = DB.Query<ProductManage>();
-            query.WhereIf(criteria.Supplier!=null, p => p.SupplierId == criteria.SupplierId);
+            query.WhereIf(criteria.Supplier != null, p => p.SupplierId == criteria.SupplierId);
+            query.OrderBy(criteria.OrderInfoList);
             return query.Where(
-                p=>p.Name.Contains(criteria.Name) && 
+                p => p.Name.Contains(criteria.Name) &&
                 p.Code.Contains(criteria.Code)).ToList(
-                    criteria.PagingInfo,new EagerLoadOptions().LoadWithViewProperty()
+                    criteria.PagingInfo, new EagerLoadOptions().LoadWithViewProperty()
                 );
+        }
+        /// <summary>
+        /// 审核产品
+        /// </summary>
+        /// <param name="args"></param>
+        /// <returns></returns>
+        public virtual bool IsReview(ReviewProductManageCommandArgument args)
+        {
+            var query = DB.Update<ProductManage>().Where(p => args.SelectIds.ToList().Contains(p.Id));
+            query.Set(d => d.Remark, args.Remark);
+            query.Set(d => d.Status, ProductStatus.Audited);
+            query.Execute();
+            return true;
+        }
+        /// <summary>
+        /// 审核产品参数
+        /// </summary>
+        public class ReviewProductManageCommandArgument
+        {
+            public double[] SelectIds { get; set; }
+            public string Remark { get; set; }
         }
     }
 }

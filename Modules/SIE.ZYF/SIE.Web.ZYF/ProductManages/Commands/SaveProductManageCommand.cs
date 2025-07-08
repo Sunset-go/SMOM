@@ -6,10 +6,12 @@ namespace SIE.Web.ZYF.ProductManages.Commands
 {
     public class SaveProductManageCommand: FormSaveCommand
     {
-        protected override void OnSaved(Entity entity)
+        protected override void DoSave(Entity entity)
         {
-            ProductManage product = entity as ProductManage;
-            RT.Service.Resolve<ProductManageController>().UpdataModTimes(product.Id, product.ModifyCount);
+            if (entity is ProductManage product)
+            {
+                RT.Service.Resolve<ProductManageController>().UpdataModTimes(product.Id, product.ModifyCount);
+            }
             base.OnSaved(entity); // 调用父类方法
         }
     }
