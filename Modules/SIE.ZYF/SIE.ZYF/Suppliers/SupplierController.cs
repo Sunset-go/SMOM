@@ -5,6 +5,7 @@ using SIE.ZYF.Controllers;
 using SIE.ZYF.Materials;
 using System;
 using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 namespace SIE.ZYF.Suppliers
 {
@@ -87,6 +88,20 @@ namespace SIE.ZYF.Suppliers
                 });
             }
             return res;
+        }
+
+        public virtual SupplierAddress SupplierAddressBySupplierId(double id)
+        {
+            var res = DB.Query<SupplierAddress>().Where(p => p.SupAddressId == id).FirstOrDefault();
+            return res;
+        }
+
+        public virtual EntityList<SupplierPhone> SupplierConcatBySupplierId(double id,IList<OrderInfo> sortInfo,PagingInfo pagingInfo)
+        {
+            return DB.Query<SupplierPhone>()
+                .Where(p=>p.SuConcatId == id)
+                .OrderBy(sortInfo)
+                .ToList(pagingInfo, new EagerLoadOptions().LoadWithViewProperty());
         }
     }
 }

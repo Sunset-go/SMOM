@@ -1,5 +1,6 @@
 ﻿using SIE.Domain;
 using SIE.Domain.Validation;
+using SIE.ManagedProperty;
 using SIE.MetaModel;
 using System;
 using System.Text.RegularExpressions;

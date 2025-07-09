@@ -100,33 +100,22 @@ namespace SIE.Web.ZYF.ProductManages
         {
             View.HasDetailColumnsCount(2);
             View.UseDefaultCommands();
+            View.AddBehavior("SIE.Web.ZYF.ProductManages.Behaviors.AddProductManageBehavior");
             View.Property(p => p.Code).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
             View.Property(p => p.Name).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
             View.Property(p => p.Status).DefaultValue((int)ProductStatus.UnAudit).Readonly();
-            View.Property(p => p.PurchaseQuantity).DefaultValue(1);
+            View.Property(p => p.PurchaseQuantity);
             View.Property(p => p.PurchasePrice);
             View.Property(p => p.Price);
             View.Property(p => p.SupplierId).UseDataSource((source, pagingInfo, keyword) =>
             {
                 return RT.Service.Resolve<ProductManageController>().OpenState(pagingInfo, State.Enable, keyword);
-            })
-                .UsePagingLookUpEditor((c, p) =>
-            {
-                Dictionary<string, string> dic = new Dictionary<string, string>();
-                dic.Add(nameof(p.ProductMaterialId), null);
-                c.DicLinkField = dic;
-            });
+            }).Cascade(p => p.ProductMaterialId, null);
             View.Property(p => p.ProductMaterialId).UseDataSource((source, pagingInfo, keyword) =>
             {
                 return RT.Service.Resolve<ProductManageController>().QueryMaterial(source, pagingInfo, keyword);
-            }).UsePagingLookUpEditor((e, m) =>
-            {
-                var dic = new Dictionary<string, string>();
-                dic.Add(nameof(m.ProductMaterialId), m.ProductMaterialId.ToString());
             });
-            //View.Property(p => p.ModifyCount);
             View.Property(p => p.Description);
-            //View.Property(p => p.Remark);
         }
         ///<summary>
 		/// 配置下拉视图

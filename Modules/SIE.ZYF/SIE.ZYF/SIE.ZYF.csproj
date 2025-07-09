@@ -6,7 +6,6 @@
 
   <ItemGroup>
     <Compile Remove="Suppliers\SupplierMaterialsSubmitting.cs" />
-    <Compile Remove="Suppliers\SupplierSubmitted.cs" />
     <Compile Remove="Units\UnitSubmitting.cs" />
   </ItemGroup>
 

@@ -1,4 +1,5 @@
-﻿using SIE.MetaModel.View;
+﻿using SIE.Domain;
+using SIE.MetaModel.View;
 using SIE.Web.Common;
 using SIE.ZYF.Suppliers;
 using System;
@@ -11,7 +12,6 @@ namespace SIE.Web.ZYF.Suppliers
 	/// </summary>
 	internal class SupplierViewConfig : WebViewConfig<Supplier>
 	{
-        public const string SupplierAttachDetailViewGroup = "SupplierAttachDetailViewGroup";
 
         ///<summary>
         /// 配置明细视图
@@ -49,7 +49,30 @@ namespace SIE.Web.ZYF.Suppliers
             View.Property(p => p.PostalCode);
             View.Property(p => p.DataSourceEnum);
             View.Property(p => p.Remarks).UseMemoEditor();
-            View.ChildrenProperty(p => p.SupplierMaterialsList);  // 在子表中添加命令后需要注释掉，否则会出现命令冲突，导致页面加载不出来
+            View.ChildrenProperty(p => p.SupplierMaterialsList);
+            View.AssociateChildrenProperty(SupplierExtension.SuAddressProperty, (c) =>
+            {
+                var sup = c.Parent as Supplier;
+                var address = RT.Service.Resolve<SupplierController>().SupplierAddressBySupplierId(sup.Id);
+                if (address == null)
+                {
+                    var supplierAddress = new SupplierAddress();
+                    supplierAddress.GenerateId();
+                    return supplierAddress;
+                }
+                return address;
+            }, "DetailsView").HasLabel("供应商地址").Show(ChildShowInWhere.All);
+            View.AssociateChildrenProperty(SupplierExtension.SuConcatProperty, (c) =>
+            {
+                var pagingDataArgs = c as ChildPagingDataArgs;
+                var sup = c.Parent as Supplier;
+                var concat = RT.Service.Resolve<SupplierController>().SupplierConcatBySupplierId(sup.Id, pagingDataArgs.SortInfo,pagingDataArgs.PagingInfo);
+                if(concat.Count == 0)
+                {
+                    return new EntityList<SupplierPhone>();
+                }
+                return concat;
+            }).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
         }
 
         ///<summary>
@@ -60,6 +83,7 @@ namespace SIE.Web.ZYF.Suppliers
             View.FormEdit();
             View.UseDefaultCommands();
             View.RemoveCommands(WebCommandNames.Copy);
+            View.RemoveCommands(WebCommandNames.Save);
             View.Property(p => p.Code).FixColumn();
             View.Property(p => p.Name).FixColumn();
             View.Property(p => p.Logo).UseTextEditor(p => p.ColumnXType = "ImageInlineEditor");
@@ -86,6 +110,30 @@ namespace SIE.Web.ZYF.Suppliers
             View.Property(p => p.Remarks);
             View.ChildrenProperty(p => p.SupplierMaterialsList);
             View.Property(p => p.DataSourceEnum);
+            View.AssociateChildrenProperty(SupplierExtension.SuAddressProperty, (c) =>
+            {
+                var sup = c.Parent as Supplier;
+                var address = RT.Service.Resolve<SupplierController>().SupplierAddressBySupplierId(sup.Id);
+                if(address == null)
+                {
+                    var supplierAddress = new SupplierAddress();
+                    supplierAddress.GenerateId();
+                    return supplierAddress;
+                }
+                return address;
+            },"DetailsView").HasLabel("供应商地址").Show(ChildShowInWhere.All);
+            View.AssociateChildrenProperty(SupplierExtension.SuConcatProperty, (c) =>
+            {
+                var pagingDataArgs = c as ChildPagingDataArgs;
+                var sup = c.Parent as Supplier;
+                var concat = RT.Service.Resolve<SupplierController>()
+                .SupplierConcatBySupplierId(sup.Id, pagingDataArgs.SortInfo, pagingDataArgs.PagingInfo);
+                if (concat.Count == 0)
+                {
+                    return new EntityList<SupplierPhone>();
+                }
+                return concat;
+            }).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
         }
 
         ///<summary>
@@ -135,7 +183,7 @@ namespace SIE.Web.ZYF.Suppliers
         /// </summary>
         protected override void ConfigView()
 		{
-			View.HasDelegate(Supplier.NameProperty);
+            View.HasDelegate(Supplier.NameProperty);
             View.UseDefaultCommands();
         }
     }

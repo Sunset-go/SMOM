@@ -6,15 +6,18 @@
 
   <ItemGroup>
     <None Remove="Editors\ImageInlineEditor.js" />
+    <None Remove="ProductManages\Behaviors\AddProductManageBehavior.js" />
     <None Remove="ProductManages\Commands\DeleteProductManageCommand.js" />
     <None Remove="ProductManages\Commands\ImportProductManageCommand.js" />
     <None Remove="ProductManages\Commands\UpdateAttachmentCommand.js" />
+    <None Remove="Suppliers\Commands\AddSupplierPhoneCommand.js" />
     <None Remove="Suppliers\Commands\SelectionMaterialsCommand.js" />
     <None Remove="ProductManages\Commands\AddProductManageCommand.js" />
     <None Remove="ProductManages\Commands\ReviewProductManageCommand.js" />
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="ProductManages\Behaviors\AddProductManageBehavior.js" />
     <EmbeddedResource Include="ProductManages\Commands\DeleteProductManageCommand.js" />
     <EmbeddedResource Include="ProductManages\Commands\SaveProductManageCommand.js" />
   </ItemGroup>
@@ -22,6 +25,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Editors\ImageInlineEditor.js" />
     <EmbeddedResource Include="ProductManages\Commands\ImportProductManageCommand.js" />
+    <EmbeddedResource Include="Suppliers\Commands\AddSupplierPhoneCommand.js" />
     <EmbeddedResource Include="Suppliers\Commands\SelectionMaterialsCommand.js" />
     <EmbeddedResource Include="ProductManages\Commands\AddProductManageCommand.js" />
     <EmbeddedResource Include="ProductManages\Commands\EditProductManageCommand.js" />
