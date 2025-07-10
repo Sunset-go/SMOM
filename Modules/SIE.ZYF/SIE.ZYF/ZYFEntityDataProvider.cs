@@ -1,9 +1,6 @@
 ﻿using SIE.Domain;
 using SIE.Domain.ORM;
 using SIE.ZYF;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 [assembly: Repository(typeof(ZYFEntityDataProvider<>))]
 namespace SIE.ZYF

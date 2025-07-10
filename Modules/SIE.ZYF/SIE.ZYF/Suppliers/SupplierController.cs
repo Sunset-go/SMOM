@@ -1,11 +1,9 @@
-﻿using NPOI.SS.Formula.Functions;
-using SIE.Api;
+﻿using SIE.Api;
 using SIE.Domain;
 using SIE.ZYF.Controllers;
 using SIE.ZYF.Materials;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Linq;
 namespace SIE.ZYF.Suppliers
 {
@@ -47,7 +45,7 @@ namespace SIE.ZYF.Suppliers
                 (p, sm) => sm.Join<Material>((o, m) => m.Code.Contains(materialCode) && m.Id == o.MaterialId && o.SupplierId == p.Id)
             );
 
-            query.Where(p=>p.UpdateDate>=  suppliersDateStart).Where(p=>p.UpdateDate <= suppliersDateEnd);
+            query.Where(p => p.UpdateDate >= suppliersDateStart).Where(p => p.UpdateDate <= suppliersDateEnd);
             var result = query.ToList(new PagingInfo
             {
                 IsNeedCount = true,
@@ -96,10 +94,10 @@ namespace SIE.ZYF.Suppliers
             return res;
         }
 
-        public virtual EntityList<SupplierPhone> SupplierConcatBySupplierId(double id,IList<OrderInfo> sortInfo,PagingInfo pagingInfo)
+        public virtual EntityList<SupplierPhone> SupplierConcatBySupplierId(double id, IList<OrderInfo> sortInfo, PagingInfo pagingInfo)
         {
             return DB.Query<SupplierPhone>()
-                .Where(p=>p.SuConcatId == id)
+                .Where(p => p.SuConcatId == id)
                 .OrderBy(sortInfo)
                 .ToList(pagingInfo, new EagerLoadOptions().LoadWithViewProperty());
         }

@@ -6,7 +6,11 @@
 
   <ItemGroup>
     <None Remove="Editors\ImageInlineEditor.js" />
+    <None Remove="Materials\Behaviors\DescriptionToNameBehavior.js" />
+    <None Remove="Materials\Commands\AddMaterialCommand.js" />
     <None Remove="ProductManages\Behaviors\AddProductManageBehavior.js" />
+    <None Remove="ProductManages\Behaviors\ProductManageAction.js" />
+    <None Remove="ProductManages\Behaviors\ProductManageColorBehavior.js" />
     <None Remove="ProductManages\Commands\DeleteProductManageCommand.js" />
     <None Remove="ProductManages\Commands\ImportProductManageCommand.js" />
     <None Remove="ProductManages\Commands\UpdateAttachmentCommand.js" />
@@ -17,7 +21,13 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Include="Materials\Behaviors\DescriptionToNameBehavior.js" />
+    <EmbeddedResource Include="Materials\Behaviors\MaterialAction.js" />
+    <EmbeddedResource Include="Materials\Commands\AddMaterialCommand.js" />
     <EmbeddedResource Include="ProductManages\Behaviors\AddProductManageBehavior.js" />
+    <EmbeddedResource Include="ProductManages\Behaviors\ProductManageAction.js" />
+    <EmbeddedResource Include="ProductManages\Behaviors\ProductManageAutoAddBehaviors.js" />
+    <EmbeddedResource Include="ProductManages\Behaviors\ProductManageColorBehavior.js" />
     <EmbeddedResource Include="ProductManages\Commands\DeleteProductManageCommand.js" />
     <EmbeddedResource Include="ProductManages\Commands\SaveProductManageCommand.js" />
   </ItemGroup>

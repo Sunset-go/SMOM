@@ -2,7 +2,6 @@
 using SIE.Domain.Validation;
 using SIE.MetaModel;
 using System;
-using System.ComponentModel;
 
 namespace SIE.ZYF.ProductManages
 {
@@ -28,13 +27,13 @@ namespace SIE.ZYF.ProductManages
                 {
                     e.BrokenDescription = "销售价格必须大于0".L10N();
                 }
-                else if(productManage.Price < productManage.PurchasePrice)
+                else if (productManage.Price < productManage.PurchasePrice)
                 {
                     e.BrokenDescription = "销售价格必须大于等于采购价".L10N();
                 }
             }
         }
-       
+
     }
 }
 

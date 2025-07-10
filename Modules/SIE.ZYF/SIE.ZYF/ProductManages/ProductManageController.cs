@@ -1,6 +1,11 @@
-﻿using SIE.Domain;
+﻿using SIE.Common.Configs;
+using SIE.Common.Configs.CommonConfigs;
+using SIE.Common.NumberRules;
+using SIE.Domain;
+using SIE.Domain.Validation;
 using SIE.Web.ZYF.ProductManages;
 using SIE.ZYF.Materials;
+using SIE.ZYF.ProductManages.Configs;
 using SIE.ZYF.Suppliers;
 using System;
 using System.Linq;
@@ -106,6 +111,32 @@ namespace SIE.ZYF.ProductManages
         {
             public double[] SelectIds { get; set; }
             public string Remark { get; set; }
+        }
+        /// <summary>
+        /// 获取产品编码
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ValidationException"></exception>
+        public virtual string GetCode()
+        {
+            var config = ConfigService.GetConfig(new NoConfig(),typeof(ProductManage));
+            if (config == null|| config.BacodeRule == null)
+            {
+                throw new ValidationException("没有配置产品编码规则".L10N());
+            }
+            return RT.Service.Resolve<NumberRuleController>()
+                .GenerateSegment(config.NumberRuleId.Value, 1)
+                .FirstOrDefault();
+        }
+        /// <summary>
+        /// 获取产品数量
+        /// </summary>
+        /// <returns></returns>
+        /// <exception cref="ValidationException"></exception>
+        public virtual int GetQuantity()
+        {
+            var config = ConfigService.GetConfig(new QuantityConfig(),typeof(ProductManage)) ?? throw new ValidationException("没有配置产品数量规则".L10N());
+            return config.Quantity;
         }
     }
 }

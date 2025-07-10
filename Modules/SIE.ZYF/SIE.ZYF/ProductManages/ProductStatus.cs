@@ -1,7 +1,4 @@
 ﻿using SIE.ObjectModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SIE.ZYF.ProductManages
 {

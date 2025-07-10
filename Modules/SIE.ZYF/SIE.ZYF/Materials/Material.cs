@@ -1,4 +1,6 @@
-﻿using SIE.Domain;
+﻿using SIE.Common.Configs;
+using SIE.Common.Configs.CommonConfigs;
+using SIE.Domain;
 using SIE.MetaModel;
 using SIE.ObjectModel;
 using SIE.ZYF.Suppliers;
@@ -15,7 +17,8 @@ namespace SIE.ZYF.Materials
 	[Label("物料")]
 	[DisplayMember(nameof(Code))]
 	[QueryMembers(new[] { nameof(Code), nameof(Name) })]
-	public partial class Material : DataEntity
+    [EntityWithConfig(typeof(NoConfig), "物料编码", "物料编码生成规则")]
+    public partial class Material : DataEntity
 	{
         #region 物料编码 Code
         /// <summary>

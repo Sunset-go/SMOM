@@ -1,8 +1,5 @@
 ﻿using SIE.Domain;
 using SIE.MetaModel;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SIE.ZYF.Suppliers
 {
@@ -55,7 +52,7 @@ namespace SIE.ZYF.Suppliers
 
         internal class SupplierAddressExtensionConfig : EntityConfig<Supplier>
         {
-            protected   override void ConfigMeta()
+            protected override void ConfigMeta()
             {
                 Meta.Property(SupplierExtension.SuAddressProperty).DontMapColumn();
                 Meta.Property(SupplierExtension.SuConcatProperty).DontMapColumn();

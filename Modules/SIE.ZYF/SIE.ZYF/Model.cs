@@ -1,7 +1,6 @@
 ﻿using SIE.Modules;
-using System;
 
-[assembly :Module(typeof(SIE.ZYF.Model))]
+[assembly: Module(typeof(SIE.ZYF.Model))]
 
 namespace SIE.ZYF
 {

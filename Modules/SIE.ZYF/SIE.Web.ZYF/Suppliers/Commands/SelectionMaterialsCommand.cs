@@ -4,12 +4,11 @@ using SIE.ZYF.ProductManages;
 using SIE.ZYF.Suppliers;
 using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SIE.Web.ZYF.Suppliers.Commands
 {
     internal class SelectionMaterialsCommand : ViewCommand
-    {   
+    {
         protected override object Excute(ViewArgs args, string scope)
         {
             // 反序列化获取供应商Id及所选的物料
