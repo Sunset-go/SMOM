@@ -1,5 +1,4 @@
 ﻿using Castle.Core.Internal;
-using NPOI.SS.Formula.Functions;
 using SIE.Api;
 using SIE.Common.Configs;
 using SIE.Common.Configs.CommonConfigs;
@@ -7,7 +6,6 @@ using SIE.Common.NumberRules;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.ZYF.Controllers;
-using SIE.ZYF.Materials;
 using SIE.ZYF.Units;
 using System;
 using System.Collections.Generic;
@@ -27,7 +25,7 @@ namespace SIE.ZYF.Materials
         public virtual List<MaterialQuery> GetMaterialList([ApiParameter("物料名称/编码")] string name)
         {
             // 返回物料编码，物料名称，物料类型，单位编码，单位名称
-            var result = Query<Material>().Where(c => c.Name.Contains(name)||c.Code.Contains(name))
+            var result = Query<Material>().Where(c => c.Name.Contains(name) || c.Code.Contains(name))
                 .ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             if (result.IsNullOrEmpty())
             {
@@ -55,10 +53,10 @@ namespace SIE.ZYF.Materials
         /// <param name="code">物料编码</param>
         /// <param name="NewName">新物料名称</param>
         [ApiService("更新物料名称")]
-        public virtual void UpdateMaterial([ApiParameter("物料编码")]string code, [ApiParameter("物料名称")]string NewName)
+        public virtual void UpdateMaterial([ApiParameter("物料编码")] string code, [ApiParameter("物料名称")] string NewName)
         {
             // 更新物料名称
-            DB.Update<Material>().Where(c=>c.Code==code).Set(c=>c.Name,NewName).Execute();
+            DB.Update<Material>().Where(c => c.Code == code).Set(c => c.Name, NewName).Execute();
         }
         /// <summary>
         /// 获取启用单位的信息
