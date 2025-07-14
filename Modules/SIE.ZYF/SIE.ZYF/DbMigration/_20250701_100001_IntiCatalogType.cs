@@ -90,6 +90,19 @@ namespace SIE.ZYF.DbMigration
                     });
                 }
             });
+            RunCode(db =>
+            {
+                AppRuntime.InvOrg = 1;
+                if (RT.Service.Resolve<CatalogController>().GetCatalogTypeList().FirstOrDefault(p => p.Code == SupplierAddress.SupplierAddressType) == null)
+                {
+                    RF.Save(new CatalogType
+                    {
+                        Code = SupplierAddress.SupplierAddressType,
+                        Name = "地址类型",
+                        Description = "供应商地址类型",
+                    });
+                }
+            });
         }
     }
 }

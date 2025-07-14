@@ -1,13 +1,5 @@
-﻿using SIE.Common.Users;
-using SIE.Domain;
-using SIE.Domain.Validation;
-using SIE.ManagedProperty;
-using SIE.MetaModel;
-using SIE.ZYF.Materials;
-using SIE.ZYF.Suppliers;
-using SIE.ZYF.Units;
+﻿using SIE.Domain.Validation;
 using System;
-using System.Text.RegularExpressions;
 
 namespace SIE.ZYF.Suppliers
 {

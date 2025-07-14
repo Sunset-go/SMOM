@@ -1,5 +1,4 @@
 ﻿using SIE.ObjectModel;
-using System;
 
 namespace SIE.ZYF.Materials
 {
@@ -7,8 +6,8 @@ namespace SIE.ZYF.Materials
     public enum MaterialType
     {
         [Label("物料")]
-        Materials=0,
+        Materials = 0,
         [Label("产品")]
-        Products=1
+        Products = 1
     }
 }

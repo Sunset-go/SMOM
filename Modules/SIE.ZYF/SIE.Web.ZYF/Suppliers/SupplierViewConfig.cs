@@ -1,15 +1,17 @@
-﻿using SIE.MetaModel.View;
+﻿using SIE.Domain;
+using SIE.MetaModel.View;
 using SIE.Web.Common;
 using SIE.ZYF.Suppliers;
 using State = SIE.Domain.State;
 
 namespace SIE.Web.ZYF.Suppliers
 {
-	/// <summary>
-	/// 供应商功能视图配置
-	/// </summary>
-	internal class SupplierViewConfig : WebViewConfig<Supplier>
-	{
+    /// <summary>
+    /// 供应商功能视图配置
+    /// </summary>
+    internal class SupplierViewConfig : WebViewConfig<Supplier>
+    {
+
         ///<summary>
         /// 配置明细视图
         /// </summary>
@@ -46,7 +48,34 @@ namespace SIE.Web.ZYF.Suppliers
             View.Property(p => p.PostalCode);
             View.Property(p => p.DataSourceEnum);
             View.Property(p => p.Remarks).UseMemoEditor();
-            View.ChildrenProperty(p => p.SupplierMaterialsList);  // 在子表中添加命令后需要注释掉，否则会出现命令冲突，导致页面加载不出来
+            View.ChildrenProperty(p => p.SupplierMaterialsList);
+            #region 供应商地址
+            View.AssociateChildrenProperty(SupplierExtension.SuAddressProperty, (c) =>
+            {
+                var sup = c.Parent as Supplier;
+                var address = RT.Service.Resolve<SupplierController>().SupplierAddressBySupplierId(sup.Id);
+                if (address == null)
+                {
+                    var supplierAddress = new SupplierAddress();
+                    supplierAddress.GenerateId();
+                    return supplierAddress;
+                }
+                return address;
+            }, SupplierAddressViewConfig.SupplierAddressViewGroup).HasLabel("供应商地址").Show(ChildShowInWhere.All);
+            #endregion
+            #region 供应商联系人
+            View.AssociateChildrenProperty(SupplierExtension.SuConcatProperty, (c) =>
+            {
+                var pagingDataArgs = c as ChildPagingDataArgs;
+                var sup = c.Parent as Supplier;
+                var concat = RT.Service.Resolve<SupplierController>().SupplierConcatBySupplierId(sup.Id, pagingDataArgs.SortInfo, pagingDataArgs.PagingInfo);
+                if (concat.Count == 0)
+                {
+                    return new EntityList<SupplierPhone>();
+                }
+                return concat;
+            },SupplierPhoneViewConfig.SupplierConcatViewGroup).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
+            #endregion
         }
 
         ///<summary>
@@ -83,6 +112,34 @@ namespace SIE.Web.ZYF.Suppliers
             View.Property(p => p.Remarks);
             View.ChildrenProperty(p => p.SupplierMaterialsList);
             View.Property(p => p.DataSourceEnum);
+            #region 供应商地址
+            View.AssociateChildrenProperty(SupplierExtension.SuAddressProperty, (c) =>
+            {
+                var sup = c.Parent as Supplier;
+                var address = RT.Service.Resolve<SupplierController>().SupplierAddressBySupplierId(sup.Id);
+                if (address == null)
+                {
+                    var supplierAddress = new SupplierAddress();
+                    supplierAddress.GenerateId();
+                    return supplierAddress;
+                }
+                return address;
+            }, SupplierAddressViewConfig.SupplierAddressReadOnlyViewGroup).HasLabel("供应商地址").Show(ChildShowInWhere.All);
+            #endregion
+            #region 供应商联系人
+            View.AssociateChildrenProperty(SupplierExtension.SuConcatProperty, (c) =>
+            {
+                var pagingDataArgs = c as ChildPagingDataArgs;
+                var sup = c.Parent as Supplier;
+                var concat = RT.Service.Resolve<SupplierController>()
+                .SupplierConcatBySupplierId(sup.Id, pagingDataArgs.SortInfo, pagingDataArgs.PagingInfo);
+                if (concat.Count == 0)
+                {
+                    return new EntityList<SupplierPhone>();
+                }
+                return concat;
+            },SupplierPhoneViewConfig.SupplierConcatReadOnlyViewGroup).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
+            #endregion
         }
 
         ///<summary>
@@ -100,8 +157,6 @@ namespace SIE.Web.ZYF.Suppliers
         /// </summary>
         protected override void ConfigSelectionView()
         {
-            //View.Property(p => p.Type);
-            //View.Property(p => p.Region);
             View.Property(p => p.Code);
             View.Property(p => p.Name);
             View.Property(p => p.Logo).UseTextEditor(p => p.ColumnXType = "ImageInlineEditor");
@@ -131,9 +186,9 @@ namespace SIE.Web.ZYF.Suppliers
         /// 配置视图
         /// </summary>
         protected override void ConfigView()
-		{
-			View.HasDelegate(Supplier.NameProperty);
-			View.UseDefaultCommands();
-		}
+        {
+            View.HasDelegate(Supplier.NameProperty);
+            View.UseDefaultCommands();
+        }
     }
 }

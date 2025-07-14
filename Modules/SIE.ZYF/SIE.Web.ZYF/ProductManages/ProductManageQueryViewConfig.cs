@@ -1,13 +1,9 @@
 ﻿using SIE.Domain;
-using SIE.MetaModel;
 using SIE.ZYF.ProductManages;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SIE.Web.ZYF.ProductManages
 {
-    public class ProductManageQueryViewConfig:WebViewConfig<ProductManageCriteria>
+    public class ProductManageQueryViewConfig : WebViewConfig<ProductManageCriteria>
     {
         protected override void ConfigView()
         {

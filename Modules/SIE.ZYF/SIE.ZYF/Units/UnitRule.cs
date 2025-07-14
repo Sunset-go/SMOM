@@ -1,6 +1,6 @@
 ﻿using SIE.Domain.Validation;
-using System;
 using SIE.ZYF.Materials;
+using System;
 
 namespace SIE.ZYF.Units
 {
@@ -9,7 +9,7 @@ namespace SIE.ZYF.Units
 	/// </summary>
 	[System.ComponentModel.DisplayName("单位被引用不允许删除")]
     [System.ComponentModel.Description("单位被物料引用不允许删除")]
-    public class UnitRule: NoReferencedRule<Unit>
+    public class UnitRule : NoReferencedRule<Unit>
     {
         public UnitRule()
         {

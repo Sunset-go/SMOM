@@ -1,12 +1,8 @@
-﻿using AngleSharp.Dom;
-using SIE.MetaModel;
+﻿using SIE.MetaModel;
 using SIE.Modules;
 using SIE.Web.ZYF;
-using SIE.Web.ZYF.ProductManages;
-using SIE.ZYF.Units;
 using System;
 [assembly: Module(typeof(ZYFWebModel))]
-
 namespace SIE.Web.ZYF
 {
     public class ZYFWebModel : UIModule
@@ -48,6 +44,11 @@ namespace SIE.Web.ZYF
             {
                 EntityType = typeof(SIE.ZYF.ProductManages.ProductManage),
                 Label = "产品管理"
+            },
+            new WebModuleMeta()
+            {
+                EntityType = typeof(SIE.ZYF.PurchaseOrders.PurchaseOrder),
+                Label = "采购订单"
             }
             );
         }

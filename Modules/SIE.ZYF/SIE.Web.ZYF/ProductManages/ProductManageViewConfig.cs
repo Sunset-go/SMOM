@@ -2,7 +2,6 @@
 using SIE.MetaModel.View;
 using SIE.Web.ZYF.ProductManages.Commands;
 using SIE.ZYF.ProductManages;
-using System.Collections.Generic;
 
 namespace SIE.Web.ZYF.ProductManages
 {
@@ -52,6 +51,7 @@ namespace SIE.Web.ZYF.ProductManages
         {
             View.UseDetail(columnCount: 2, dialogHeight: 400, dialogWidth: 750);
             View.ReplaceCommands(WebCommandNames.FormSave, typeof(SaveProductManageCommand).FullName);
+            View.AddBehavior("SIE.Web.ZYF.ProductManages.Behaviors.ProductManageAutoAddBehaviors");
             using (View.OrderProperties())
             {
                 View.Property(p => p.Code).Readonly().Show();
@@ -62,19 +62,20 @@ namespace SIE.Web.ZYF.ProductManages
                 View.Property(p => p.Description).Show();
             }
         }
-
         ///<summary>
         /// 配置列表视图
         /// </summary>
         protected override void ConfigListView()
         {
+            View.AddBehavior("SIE.Web.ZYF.ProductManages.Behaviors.ProductManageColorBehavior");
             View.FormEdit();
             View.UseDefaultCommands();
-            View.ReplaceCommands(WebCommandNames.Add, "SIE.Web.ZYF.ProductManages.Commands.AddProductManageCommand");
+            View.ReplaceCommands(WebCommandNames.Add, typeof(AddProductManageCommand).FullName);
             View.ReplaceCommands(WebCommandNames.Edit, "SIE.Web.ZYF.ProductManages.Commands.EditProductManageCommand");
             View.ReplaceCommands(WebCommandNames.Copy, "SIE.Web.ZYF.ProductManages.Commands.ReviewProductManageCommand");
             View.UseCommands(typeof(ImportProductManageCommand).FullName);
-            View.ReplaceCommands(WebCommandNames.Delete, "SIE.Web.ZYF.ProductManages.Commands.DeleteProductManageCommand");
+            View.UseCommands(typeof(ProManPrintableCommand).FullName);
+            View.ReplaceCommands(WebCommandNames.Delete, typeof(DeleteProductManageCommand).FullName);
             View.Property(p => p.Code).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
             View.Property(p => p.Name).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
             View.Property(p => p.Description);
@@ -100,33 +101,23 @@ namespace SIE.Web.ZYF.ProductManages
         {
             View.HasDetailColumnsCount(2);
             View.UseDefaultCommands();
-            View.Property(p => p.Code).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
+            View.AddBehavior("SIE.Web.ZYF.ProductManages.Behaviors.AddProductManageBehavior");
+            View.AddBehavior("SIE.Web.ZYF.ProductManages.Behaviors.ProductManageAutoAddBehaviors");
+            View.Property(p => p.Code).Readonly();
             View.Property(p => p.Name).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
             View.Property(p => p.Status).DefaultValue((int)ProductStatus.UnAudit).Readonly();
-            View.Property(p => p.PurchaseQuantity).DefaultValue(1);
+            View.Property(p => p.PurchaseQuantity);
             View.Property(p => p.PurchasePrice);
             View.Property(p => p.Price);
             View.Property(p => p.SupplierId).UseDataSource((source, pagingInfo, keyword) =>
             {
                 return RT.Service.Resolve<ProductManageController>().OpenState(pagingInfo, State.Enable, keyword);
-            })
-                .UsePagingLookUpEditor((c, p) =>
-            {
-                Dictionary<string, string> dic = new Dictionary<string, string>();
-                dic.Add(nameof(p.ProductMaterialId), null);
-                c.DicLinkField = dic;
-            });
+            }).Cascade(p => p.ProductMaterialId, null);
             View.Property(p => p.ProductMaterialId).UseDataSource((source, pagingInfo, keyword) =>
             {
                 return RT.Service.Resolve<ProductManageController>().QueryMaterial(source, pagingInfo, keyword);
-            }).UsePagingLookUpEditor((e, m) =>
-            {
-                var dic = new Dictionary<string, string>();
-                dic.Add(nameof(m.ProductMaterialId), m.ProductMaterialId.ToString());
             });
-            //View.Property(p => p.ModifyCount);
             View.Property(p => p.Description);
-            //View.Property(p => p.Remark);
         }
         ///<summary>
 		/// 配置下拉视图

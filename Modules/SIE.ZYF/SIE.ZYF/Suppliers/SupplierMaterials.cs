@@ -1,17 +1,15 @@
-﻿using SIE;
-using SIE.Domain;
+﻿using SIE.Domain;
 using SIE.MetaModel;
 using SIE.ObjectModel;
 using SIE.ZYF.Materials;
-using SIE.ZYF.Suppliers;
 using System;
 
 namespace SIE.ZYF.Suppliers
 {
-	/// <summary>
-	/// 
-	/// </summary>
-	[ChildEntity, Serializable]
+    /// <summary>
+    /// 
+    /// </summary>
+    [ChildEntity, Serializable]
     //[CriteriaQuery]
     [Label("供应商物料")]
     public partial class SupplierMaterials : DataEntity
@@ -83,7 +81,7 @@ namespace SIE.ZYF.Suppliers
         /// </物料summary>
         //[Required]
         [Label("物料名称")]
-        public static readonly Property<string> NameProperty = P<SupplierMaterials>.RegisterView(e => e.Name,p=>p.Material.Name);
+        public static readonly Property<string> NameProperty = P<SupplierMaterials>.RegisterView(e => e.Name, p => p.Material.Name);
 
         /// <summary>
         /// 物料名称
@@ -101,14 +99,14 @@ namespace SIE.ZYF.Suppliers
     ///  实体配置
     /// </summary>
     internal class SupplierMaterialsConfig : EntityConfig<SupplierMaterials>
-	{
-		/// <summary>
-      	  	/// 配置元数据
-    	    	/// </summary>
-		protected override void ConfigMeta()
-		{
-			Meta.MapTable("SUPPLIER_MATERIALS").MapAllProperties();
-			Meta.EnablePhantoms();
-		}
-	}
+    {
+        /// <summary>
+        /// 配置元数据
+        /// </summary>
+        protected override void ConfigMeta()
+        {
+            Meta.MapTable("SUPPLIER_MATERIALS").MapAllProperties();
+            Meta.EnablePhantoms();
+        }
+    }
 }

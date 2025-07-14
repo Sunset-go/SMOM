@@ -1,11 +1,13 @@
-﻿using SIE.Domain;
+﻿using SIE.Common.Configs;
+using SIE.Common.Configs.CommonConfigs;
+using SIE.Domain;
 using SIE.MetaModel;
 using SIE.ObjectModel;
 using SIE.Web.ZYF.ProductManages;
 using SIE.ZYF.Materials;
+using SIE.ZYF.ProductManages.Configs;
 using SIE.ZYF.Suppliers;
 using System;
-using System.Collections.Generic;
 
 namespace SIE.ZYF.ProductManages
 {
@@ -16,7 +18,9 @@ namespace SIE.ZYF.ProductManages
     //[CriteriaQuery]
     [ConditionQueryType(typeof(ProductManageCriteria))]
     [Label("产品管理")]
-    public class ProductManage:DataEntity
+    [EntityWithConfig(typeof(QuantityConfig))]
+    [EntityWithConfig(typeof(NoConfig), "编码规则","编码生成规则")]
+    public class ProductManage : DataEntity
     {
         #region 编码 Code
         /// <summary>
@@ -245,7 +249,7 @@ namespace SIE.ZYF.ProductManages
         /// 附件
         /// </summary>
         [Label("附件")]
-        public static readonly ListProperty<EntityList<ProductManageAttachment>> ProductManageAttachmentProperty = 
+        public static readonly ListProperty<EntityList<ProductManageAttachment>> ProductManageAttachmentProperty =
             P<ProductManage>.RegisterList(e => e.ProductManageAttachment);
 
         /// <summary>

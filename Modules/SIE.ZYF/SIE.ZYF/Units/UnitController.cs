@@ -1,6 +1,5 @@
 ﻿using SIE.Api;
 using SIE.Domain;
-using System;
 
 namespace SIE.ZYF.Units
 {
@@ -16,9 +15,9 @@ namespace SIE.ZYF.Units
         [ApiService("保存单位信息")]
         public virtual void SaveUnit(
             [ApiParameter("单位编码")] string unitCode,
-            [ApiParameter("单位名称")]string unitName, 
-            [ApiParameter("单位类型")]string unitType,
-            [ApiParameter("单位精度")]int unitPrecision
+            [ApiParameter("单位名称")] string unitName,
+            [ApiParameter("单位类型")] string unitType,
+            [ApiParameter("单位精度")] int unitPrecision
         )
         {
             var query = Query<Unit>().Where(u => u.Code == unitCode).ToList(null, new EagerLoadOptions().LoadWithViewProperty());

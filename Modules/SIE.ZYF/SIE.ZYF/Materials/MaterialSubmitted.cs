@@ -1,8 +1,5 @@
 ﻿using SIE.Domain;
 using SIE.ZYF.Suppliers;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SIE.ZYF.Materials
 {
@@ -12,7 +9,7 @@ namespace SIE.ZYF.Materials
     {
         protected override void Invoke(Material entity, EntitySubmittedEventArgs e)
         {
-            if(e.Action == SubmitAction.Update)
+            if (e.Action == SubmitAction.Update)
             {
                 var ac = entity as Material;
                 DB.Update<SupplierMaterials>().Set(p => p.Material.Name, ac.Name);

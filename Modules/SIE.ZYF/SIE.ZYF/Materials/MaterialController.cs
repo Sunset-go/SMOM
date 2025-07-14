@@ -1,14 +1,15 @@
 ﻿using Castle.Core.Internal;
 using SIE.Api;
+using SIE.Common.Configs;
+using SIE.Common.Configs.CommonConfigs;
+using SIE.Common.NumberRules;
 using SIE.Domain;
 using SIE.Domain.Validation;
-using SIE.ZYF.Materials;
+using SIE.ZYF.Controllers;
 using SIE.ZYF.Units;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using SIE.ZYF.Controllers;
-using NPOI.SS.Formula.Functions;
 
 namespace SIE.ZYF.Materials
 {
@@ -24,7 +25,7 @@ namespace SIE.ZYF.Materials
         public virtual List<MaterialQuery> GetMaterialList([ApiParameter("物料名称/编码")] string name)
         {
             // 返回物料编码，物料名称，物料类型，单位编码，单位名称
-            var result = Query<Material>().Where(c => c.Name.Contains(name)||c.Code.Contains(name))
+            var result = Query<Material>().Where(c => c.Name.Contains(name) || c.Code.Contains(name))
                 .ToList(null, new EagerLoadOptions().LoadWithViewProperty());
             if (result.IsNullOrEmpty())
             {
@@ -52,19 +53,19 @@ namespace SIE.ZYF.Materials
         /// <param name="code">物料编码</param>
         /// <param name="NewName">新物料名称</param>
         [ApiService("更新物料名称")]
-        public virtual void UpdateMaterial([ApiParameter("物料编码")]string code, [ApiParameter("物料名称")]string NewName)
+        public virtual void UpdateMaterial([ApiParameter("物料编码")] string code, [ApiParameter("物料名称")] string NewName)
         {
             // 更新物料名称
-            DB.Update<Material>().Where(c=>c.Code==code).Set(c=>c.Name,NewName).Execute();
+            DB.Update<Material>().Where(c => c.Code == code).Set(c => c.Name, NewName).Execute();
         }
         /// <summary>
         /// 获取启用单位的信息
         /// </summary>
-        /// <param name="pageingInfo">分页信息</param>
+        /// <param name="pagingInfo">分页信息</param>
         /// <param name="state">状态</param>
         /// <param name="keyword">查询参数</param>
         /// <returns></returns>
-        public virtual EntityList<Unit> GetUnit(PagingInfo pageingInfo, State state, string keyword)
+        public virtual EntityList<Unit> GetUnit(PagingInfo pagingInfo, State state, string keyword)
         {
             var query = DB.Query<Unit>().Where(p => p.State == state);
 
@@ -88,6 +89,17 @@ namespace SIE.ZYF.Materials
                 }
             }
             return query.ToList();
+        }
+        public virtual string GetCode()
+        {
+            var config = ConfigService.GetConfig(new NoConfig(), typeof(Material));
+            if (config == null || config.BacodeRule == null)
+            {
+                throw new ValidationException("没有配置产品编码规则".L10N());
+            }
+            return RT.Service.Resolve<NumberRuleController>()
+                .GenerateSegment(config.NumberRuleId.Value, 1)
+                .FirstOrDefault();
         }
     }
 }
