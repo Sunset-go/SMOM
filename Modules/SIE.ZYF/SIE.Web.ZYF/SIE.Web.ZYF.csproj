@@ -13,6 +13,7 @@
     <None Remove="ProductManages\Behaviors\ProductManageColorBehavior.js" />
     <None Remove="ProductManages\Commands\DeleteProductManageCommand.js" />
     <None Remove="ProductManages\Commands\ImportProductManageCommand.js" />
+    <None Remove="ProductManages\Commands\ProManPrintableCommand.js" />
     <None Remove="ProductManages\Commands\UpdateAttachmentCommand.js" />
     <None Remove="Suppliers\Commands\AddSupplierPhoneCommand.js" />
     <None Remove="Suppliers\Commands\SelectionMaterialsCommand.js" />
@@ -29,6 +30,7 @@
     <EmbeddedResource Include="ProductManages\Behaviors\ProductManageAutoAddBehaviors.js" />
     <EmbeddedResource Include="ProductManages\Behaviors\ProductManageColorBehavior.js" />
     <EmbeddedResource Include="ProductManages\Commands\DeleteProductManageCommand.js" />
+    <EmbeddedResource Include="ProductManages\Commands\ProManPrintableCommand.js" />
     <EmbeddedResource Include="ProductManages\Commands\SaveProductManageCommand.js" />
   </ItemGroup>
 

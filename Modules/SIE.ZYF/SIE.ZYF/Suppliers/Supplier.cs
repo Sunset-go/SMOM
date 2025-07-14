@@ -1,4 +1,5 @@
-﻿using SIE.Domain;
+﻿using SIE.Common.Prints;
+using SIE.Domain;
 using SIE.MetaModel;
 using SIE.ObjectModel;
 using System;
@@ -11,6 +12,7 @@ namespace SIE.ZYF.Suppliers
     [RootEntity, Serializable]
     [CriteriaQuery]
     [Label("供应商")]
+    [BillPrintable(typeof(SupplierBillPrintable))]
     public partial class Supplier : DataEntity, IStateEntity
     {
         #region 快码

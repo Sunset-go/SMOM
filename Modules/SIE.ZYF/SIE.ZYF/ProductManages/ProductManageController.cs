@@ -1,13 +1,17 @@
 ﻿using SIE.Common.Configs;
 using SIE.Common.Configs.CommonConfigs;
 using SIE.Common.NumberRules;
+using SIE.Common.Prints;
 using SIE.Domain;
 using SIE.Domain.Validation;
 using SIE.Web.ZYF.ProductManages;
 using SIE.ZYF.Materials;
 using SIE.ZYF.ProductManages.Configs;
 using SIE.ZYF.Suppliers;
+using SIE.ZYF.Units;
 using System;
+using System.Collections.Generic;
+using System.Drawing.Printing;
 using System.Linq;
 
 namespace SIE.ZYF.ProductManages
@@ -137,6 +141,23 @@ namespace SIE.ZYF.ProductManages
         {
             var config = ConfigService.GetConfig(new QuantityConfig(),typeof(ProductManage)) ?? throw new ValidationException("没有配置产品数量规则".L10N());
             return config.Quantity;
+        }
+        /// <summary>
+        /// 获取打印模板
+        /// </summary>
+        /// <returns></returns>
+        public virtual PrintTemplate GetPrintTemplate()
+        {
+            return RT.Service.Resolve<PrintsController>().GetPrintTemplates("SIE.ZYF.ProductManages.ProManLabelPrintable,SIE.ZYF", true).FirstOrDefault();
+        }
+        /// <summary>
+        /// 获取打印数据
+        /// </summary>
+        /// <param name="ids"></param>
+        /// <returns></returns>
+        public virtual EntityList<ProductManage> GetProManPrintData(List<double> ids)
+        {
+            return Query<ProductManage>().Where(p => ids.Contains(p.Id)).ToList();
         }
     }
 }

@@ -74,6 +74,7 @@ namespace SIE.Web.ZYF.ProductManages
             View.ReplaceCommands(WebCommandNames.Edit, "SIE.Web.ZYF.ProductManages.Commands.EditProductManageCommand");
             View.ReplaceCommands(WebCommandNames.Copy, "SIE.Web.ZYF.ProductManages.Commands.ReviewProductManageCommand");
             View.UseCommands(typeof(ImportProductManageCommand).FullName);
+            View.UseCommands(typeof(ProManPrintableCommand).FullName);
             View.ReplaceCommands(WebCommandNames.Delete, typeof(DeleteProductManageCommand).FullName);
             View.Property(p => p.Code).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);
             View.Property(p => p.Name).Readonly(p => p.PersistenceStatus != PersistenceStatus.New);

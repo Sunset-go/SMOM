@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.2.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="产品管理标签打印" PageWidth="850" PageHeight="1100" Version="19.2" DataMember="ProductManage" DataSource="#Ref-0">
+  <Extensions>
+    <Item1 Ref="2" Key="DataSerializationExtension" Value="DevExpress.XtraReports.Web.ReportDesigner.DefaultDataSerializer" />
+  </Extensions>
+  <Bands>
+    <Item1 Ref="3" ControlType="TopMarginBand" Name="TopMargin1">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRTable" Name="table1" SizeF="300,25" LocationFloat="0, 75">
+          <Rows>
+            <Item1 Ref="5" ControlType="XRTableRow" Name="tableRow1" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="6" ControlType="XRTableCell" Name="tableCell1" Weight="1" Multiline="true" Text="tableCell1" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="7" UseFont="false" />
+                </Item1>
+                <Item2 Ref="8" ControlType="XRTableCell" Name="tableCell2" Weight="1" Multiline="true" Text="tableCell2" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="9" UseFont="false" />
+                </Item2>
+                <Item3 Ref="10" ControlType="XRTableCell" Name="tableCell3" Weight="1" Multiline="true" Text="tableCell3" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="11" UseFont="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="12" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item1>
+      </Controls>
+    </Item1>
+    <Item2 Ref="13" ControlType="DetailBand" Name="Detail1">
+      <Controls>
+        <Item1 Ref="14" ControlType="XRTable" Name="table2" SizeF="300,25" LocationFloat="0, 0">
+          <Rows>
+            <Item1 Ref="15" ControlType="XRTableRow" Name="tableRow2" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="16" ControlType="XRTableCell" Name="tableCell4" Weight="1" Multiline="true" Text="tableCell4" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="17" EventName="BeforePrint" PropertyName="Text" Expression="[Name]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="18" UseFont="false" />
+                </Item1>
+                <Item2 Ref="19" ControlType="XRTableCell" Name="tableCell5" Weight="1" Multiline="true" Text="tableCell5" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="20" EventName="BeforePrint" PropertyName="Text" Expression="[供应商编码]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="21" UseFont="false" />
+                </Item2>
+                <Item3 Ref="22" ControlType="XRTableCell" Name="tableCell6" Weight="1" Multiline="true" Text="tableCell6" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="23" EventName="BeforePrint" PropertyName="Text" Expression="[供应商名称]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="24" UseFont="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="25" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item1>
+      </Controls>
+    </Item2>
+    <Item3 Ref="26" ControlType="BottomMarginBand" Name="BottomMargin1" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.2" Name="DataSource" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0iRGF0YVNvdXJjZSI+PENvbm5lY3Rpb24gTmFtZT0iZGF0YSIgUHJvdmlkZXJLZXk9IkluTWVtb3J5U2V0RnVsbCI+PFBhcmFtZXRlcnM+PFBhcmFtZXRlciBOYW1lPSJkYXRhYmFzZSIgVmFsdWU9IkQ6XFNpRVxTTU9NLkV4YW0uVjEwLjFcUHJvamVjdHNcU01PTVxXZWJDbGllbnRcYmluXERlYnVnXG5ldGNvcmVhcHAzLjFcVGVtcGxhdGVzXDIwMjUtMDctMTRcMDM1MjZkNTcyYjliNDllOGE2ZWMxMTE3ZjMyNmYyZmZcZGF0YS54bWwiIC8+PFBhcmFtZXRlciBOYW1lPSJyZWFkIG9ubHkiIFZhbHVlPSIxIiAvPjxQYXJhbWV0ZXIgTmFtZT0iZ2VuZXJhdGVDb25uZWN0aW9uSGVscGVyIiBWYWx1ZT0iZmFsc2UiIC8+PC9QYXJhbWV0ZXJzPjwvQ29ubmVjdGlvbj48UXVlcnkgVHlwZT0iU2VsZWN0UXVlcnkiIE5hbWU9IlByb2R1Y3RNYW5hZ2UiPjxUYWJsZXM+PFRhYmxlIE5hbWU9IlByb2R1Y3RNYW5hZ2UiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iRElTQ1JJTUlOQVRPUiIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJJZCIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJJTkRFWF8iIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iSU5WX09SR19JRCIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJJU19QSEFOVE9NIiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9IlNPVVJDRV9JRF8iIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iU1lOQ19JRCIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJUSU1FX1NUQU1QIiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9IlZFUlNJT05fIiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9IkNyZWF0ZURhdGUiIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iVXBkYXRlRGF0ZSIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJDb2RlIiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9IkRlc2NyaXB0aW9uIiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9Ik1vZGlmeUNvdW50IiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9Ik5hbWUiIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iUHJpY2UiIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iUHJvZHVjdE1hdGVyaWFsSWQiIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iUHVyY2hhc2VQcmljZSIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJQdXJjaGFzZVF1YW50aXR5IiAvPjxDb2x1bW4gVGFibGU9IlByb2R1Y3RNYW5hZ2UiIE5hbWU9IlJlbWFyayIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSJTdGF0dXMiIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0iU3VwcGxpZXJJZCIgLz48Q29sdW1uIFRhYmxlPSJQcm9kdWN0TWFuYWdlIiBOYW1lPSLkvpvlupTllYbnvJbnoIEiIC8+PENvbHVtbiBUYWJsZT0iUHJvZHVjdE1hbmFnZSIgTmFtZT0i5L6b5bqU5ZWG5ZCN56ewIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxSZXN1bHRTY2hlbWE+PERhdGFTZXQgTmFtZT0iRGF0YVNvdXJjZSI+PFZpZXcgTmFtZT0iUHJvZHVjdE1hbmFnZSI+PEZpZWxkIE5hbWU9IkRJU0NSSU1JTkFUT1IiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSWQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSU5ERVhfIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IklOVl9PUkdfSUQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSVNfUEhBTlRPTSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJTT1VSQ0VfSURfIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlNZTkNfSUQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iVElNRV9TVEFNUCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJWRVJTSU9OXyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJDcmVhdGVEYXRlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlVwZGF0ZURhdGUiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iQ29kZSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJEZXNjcmlwdGlvbiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJNb2RpZnlDb3VudCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJOYW1lIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlByaWNlIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlByb2R1Y3RNYXRlcmlhbElkIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlB1cmNoYXNlUHJpY2UiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUHVyY2hhc2VRdWFudGl0eSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJSZW1hcmsiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iU3RhdHVzIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IlN1cHBsaWVySWQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0i5L6b5bqU5ZWG57yW56CBIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IuS+m+W6lOWVhuWQjeensCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

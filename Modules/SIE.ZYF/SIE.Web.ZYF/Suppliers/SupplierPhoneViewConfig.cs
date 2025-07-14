@@ -52,9 +52,5 @@ namespace SIE.Web.ZYF.Suppliers
                 View.Property(p => p.Phone).Show();
             }
         }
-
-        //protected override void ConfigListView()
-        //{
-        //}
     }
 }
