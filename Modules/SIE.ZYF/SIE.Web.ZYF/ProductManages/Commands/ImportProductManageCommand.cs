@@ -1,9 +1,7 @@
 ﻿using SIE.Common.ImportHelper;
 using SIE.Web.Common.Import.Commands;
 using System;
-using System.Collections.Generic;
 using System.Data;
-using System.Text;
 
 namespace SIE.Web.ZYF.ProductManages.Commands
 {

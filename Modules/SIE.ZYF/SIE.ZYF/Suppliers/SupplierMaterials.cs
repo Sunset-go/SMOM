@@ -54,10 +54,10 @@ namespace SIE.ZYF.Suppliers
         /// <summary>
         /// 供应商与供应商物料的关系Id
         /// </summary>
-        public double SupplierId
+        public double? SupplierId
         {
-            get { return (double)GetRefId(SupplierIdProperty); }
-            set { SetRefId(SupplierIdProperty, value); }
+            get { return (double?)GetRefNullableId(SupplierIdProperty); }
+            set { SetRefNullableId(SupplierIdProperty, value); }
         }
 
         /// <summary>

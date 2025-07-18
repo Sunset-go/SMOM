@@ -3,9 +3,9 @@ using SIE.Common.Configs.CommonConfigs;
 using SIE.Domain;
 using SIE.MetaModel;
 using SIE.ObjectModel;
-using SIE.Web.ZYF.ProductManages;
 using SIE.ZYF.Materials;
 using SIE.ZYF.ProductManages.Configs;
+using SIE.ZYF.PurchaseOrders;
 using SIE.ZYF.Suppliers;
 using System;
 
@@ -20,6 +20,8 @@ namespace SIE.ZYF.ProductManages
     [Label("产品管理")]
     [EntityWithConfig(typeof(QuantityConfig))]
     [EntityWithConfig(typeof(NoConfig), "编码规则","编码生成规则")]
+    [DisplayMember(nameof(Code))]
+    [QueryMembers(new[] { nameof(Code), nameof(Name) })]
     public class ProductManage : DataEntity
     {
         #region 编码 Code
@@ -261,6 +263,38 @@ namespace SIE.ZYF.ProductManages
         }
         #endregion
 
+        //#region 产品管理与采购订单的关系 ProManOrder
+        ///// <summary>
+        ///// 产品管理与采购订单的关系Id
+        ///// </summary>
+        //[Label("属性名")]
+        //public static readonly IRefIdProperty ProManOrderIdProperty =
+        //    P<ProductManage>.RegisterRefId(e => e.ProManOrderId, ReferenceType.Parent);
+
+        ///// <summary>
+        ///// 产品管理与采购订单的关系Id
+        ///// </summary>
+        //public double? ProManOrderId
+        //{
+        //    get { return (double?)this.GetRefNullableId(ProManOrderIdProperty); }
+        //    set { this.SetRefNullableId(ProManOrderIdProperty, value); }
+        //}
+
+        ///// <summary>
+        ///// 产品管理与采购订单的关系
+        ///// </summary>
+        //public static readonly RefEntityProperty<PurchaseOrder> ProManOrderProperty =
+        //    P<ProductManage>.RegisterRef(e => e.ProManOrder, ProManOrderIdProperty);
+
+        ///// <summary>
+        ///// 产品管理与采购订单的关系
+        ///// </summary>
+        //public PurchaseOrder ProManOrder
+        //{
+        //    get { return this.GetRefEntity(ProManOrderProperty); }
+        //    set { this.SetRefEntity(ProManOrderProperty, value); }
+        //}
+        //#endregion
     }
     internal class ProductManageConfig : EntityConfig<ProductManage>
     {

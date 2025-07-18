@@ -1,7 +1,5 @@
-﻿using DevExpress.CodeParser;
-using SIE.MetaModel.View;
+﻿using SIE.MetaModel.View;
 using SIE.ZYF.Suppliers;
-using System;
 
 namespace SIE.Web.ZYF.Suppliers
 {
@@ -17,11 +15,11 @@ namespace SIE.Web.ZYF.Suppliers
         {
             View.DeclareExtendViewGroup(SupplierConcatViewGroup, SupplierConcatReadOnlyViewGroup);
             View.AssignAuthorize(typeof(Supplier));
-            if(ViewGroup == SupplierConcatViewGroup)
+            if (ViewGroup == SupplierConcatViewGroup)
             {
                 SupplierConcatViewConfig();
             }
-            else if( ViewGroup == SupplierConcatReadOnlyViewGroup)
+            else if (ViewGroup == SupplierConcatReadOnlyViewGroup)
             {
                 SupplierConcatReadOnlyViewConfig();
             }
@@ -32,11 +30,13 @@ namespace SIE.Web.ZYF.Suppliers
         private void SupplierConcatReadOnlyViewConfig()
         {
             View.DisableEditing();
-            using (View.OrderProperties()) {
+            using (View.OrderProperties())
+            {
                 View.Property(p => p.Concat).Show();
                 View.Property(p => p.ConcatAddress).Show();
                 View.Property(p => p.Phone).Show();
-            };
+            }
+            ;
         }
         /// <summary>
         /// 配置供应商联系人视图
@@ -45,7 +45,7 @@ namespace SIE.Web.ZYF.Suppliers
         {
             View.UseCommands("SIE.Web.ZYF.Suppliers.Commands.AddSupplierPhoneCommand");
             View.UseCommands(WebCommandNames.Delete);
-            using(View.OrderProperties())
+            using (View.OrderProperties())
             {
                 View.Property(p => p.Concat).Show();
                 View.Property(p => p.ConcatAddress).Show();

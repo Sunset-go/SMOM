@@ -1,12 +1,12 @@
 ﻿using SIE.Domain;
 using SIE.ObjectModel;
-using SIE.ZYF.ProductManages;
 using SIE.ZYF.Suppliers;
 using System;
 
-namespace SIE.Web.ZYF.ProductManages
+namespace SIE.ZYF.ProductManages
 {
-    [QueryEntity,Serializable]
+    [QueryEntity, Serializable]
+    [Label("产品管理查询")]
     public class ProductManageCriteria : Criteria
     {
         #region 编码 Code
@@ -50,10 +50,10 @@ namespace SIE.Web.ZYF.ProductManages
         /// <summary>
         /// 产品管理与供应商的关系Id
         /// </summary>
-        public double SupplierId
+        public double? SupplierId
         {
-            get { return (double)GetRefId(SupplierIdProperty); }
-            set { SetRefId(SupplierIdProperty, value); }
+            get { return (double?)GetRefNullableId(SupplierIdProperty); }
+            set { SetRefNullableId(SupplierIdProperty, value); }
         }
         /// <summary>
         /// 产品管理与供应商的关系
@@ -70,7 +70,7 @@ namespace SIE.Web.ZYF.ProductManages
         #endregion
         protected override EntityList Fetch()
         {
-            return RT.Service.Resolve<ProductManageController>().GetProducManage(this);
+            return AppRuntime.Service.Resolve<ProductManageController>().GetProducManage(this);
         }
     }
 }

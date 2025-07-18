@@ -4,14 +4,11 @@ using SIE.Common.NumberRules;
 using SIE.Common.Prints;
 using SIE.Domain;
 using SIE.Domain.Validation;
-using SIE.Web.ZYF.ProductManages;
 using SIE.ZYF.Materials;
 using SIE.ZYF.ProductManages.Configs;
 using SIE.ZYF.Suppliers;
-using SIE.ZYF.Units;
 using System;
 using System.Collections.Generic;
-using System.Drawing.Printing;
 using System.Linq;
 
 namespace SIE.ZYF.ProductManages
@@ -67,19 +64,6 @@ namespace SIE.ZYF.ProductManages
             RF.Save(supplierMaterials);
         }
         /// <summary>
-        /// 修改产品功能修改次数
-        /// </summary>
-        /// <param name="id"></param>
-        /// <param name="ModifyCount"></param>
-        public virtual void UpdataModTimes(double id, int ModifyCount)
-        {
-            ModifyCount += 1;
-            DB.Update<ProductManage>()
-                .Where(p => p.Id == id) // 条件
-                .Set(p => p.ModifyCount, ModifyCount)  // 修改次数加1
-                .Execute();
-        }
-        /// <summary>
         /// 获取产品信息
         /// </summary>
         /// <param name="criteria"></param>
@@ -123,8 +107,8 @@ namespace SIE.ZYF.ProductManages
         /// <exception cref="ValidationException"></exception>
         public virtual string GetCode()
         {
-            var config = ConfigService.GetConfig(new NoConfig(),typeof(ProductManage));
-            if (config == null|| config.BacodeRule == null)
+            var config = ConfigService.GetConfig(new NoConfig(), typeof(ProductManage));
+            if (config == null || config.BacodeRule == null)
             {
                 throw new ValidationException("没有配置产品编码规则".L10N());
             }
@@ -139,7 +123,7 @@ namespace SIE.ZYF.ProductManages
         /// <exception cref="ValidationException"></exception>
         public virtual int GetQuantity()
         {
-            var config = ConfigService.GetConfig(new QuantityConfig(),typeof(ProductManage)) ?? throw new ValidationException("没有配置产品数量规则".L10N());
+            var config = ConfigService.GetConfig(new QuantityConfig(), typeof(ProductManage)) ?? throw new ValidationException("没有配置产品数量规则".L10N());
             return config.Quantity;
         }
         /// <summary>

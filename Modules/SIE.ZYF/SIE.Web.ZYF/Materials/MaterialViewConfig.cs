@@ -28,14 +28,15 @@ namespace SIE.Web.ZYF.Materials
         {
             View.UseDefaultCommands();
             View.ReplaceCommands(WebCommandNames.Add,typeof(AddMaterialCommand).FullName);
-            View.AddBehavior("SIE.Web.ZYF.Materials.Behaviors.DescriptionToNameBehavior");
+            View.AddBehavior("SIE.Web.ZYF.NewBuild.Behaviors.DescriptionToNameBehavior");
             View.Property(p => p.Code).Readonly().FixColumn();
             View.Property(p => p.Name).FixColumn();
             View.Property(p => p.Description);
             View.Property(p => p.MaterialTypes).DefaultValue(MaterialType.Products);
             View.Property(p => p.UnitId).UseDataSource((source, pagingInfo, keyword) =>
             {
-                return AppRuntime.Service.Resolve<MaterialsController>().GetUnit(pagingInfo, State.Enable, keyword);
+                return AppRuntime.Service.Resolve<MaterialsController>()
+                .GetUnit(pagingInfo, State.Enable, keyword);
             });
         }
 

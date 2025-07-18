@@ -90,20 +90,18 @@ namespace SIE.Web.ZYF.ProductManages
             {   // 初始化供应商字典
                 dicSupplier = new Dictionary<string, double>();
             }
-            var supplier = query.Where(s => s.Code == supplierCode).FirstOrDefault(); // 根据编码获取供应商
-
-            if (supplier == null) // 如果供应商为空，则提示供应商不存在
+            if (!dicSupplier.ContainsKey(supplierCode)) // 如果字典中不存在该供应商编码，则添加供应商编码和供应商ID到字典
             {
-                MessageTip = "供应商[{0}]不存在或未启用".L10nFormat(supplierCode);
-                isValid = false;
-                AppendErrorMsg(dr, ImportDataHandle.MessageColumnName, MessageTip);
-                return isValid;
-            }
-            else
-            {
-                if (!dicSupplier.ContainsKey(supplierCode)) // 如果字典中不存在该供应商编码，则添加供应商编码和供应商ID到字典
+                var supplier = query.Where(s => s.Code == supplierCode).FirstOrDefault(); // 根据编码获取供应商
+                if (supplier != null)
                 {
                     dicSupplier[supplierCode] = supplier.Id;
+                }
+                else
+                {
+                    isValid = false;
+                    MessageTip = "供应商[{0}]不存在或未启用".L10nFormat(supplierCode);
+                    AppendErrorMsg(dr, ImportDataHandle.MessageColumnName, MessageTip);
                 }
             }
             return isValid;

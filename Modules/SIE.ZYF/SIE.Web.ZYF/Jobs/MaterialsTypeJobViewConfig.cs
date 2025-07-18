@@ -1,5 +1,4 @@
-﻿using SIE.Common.Configs;
-using SIE.ZYF.Jobs;
+﻿using SIE.ZYF.Jobs;
 
 namespace SIE.Web.ZYF.Jobs
 {
@@ -10,7 +9,7 @@ namespace SIE.Web.ZYF.Jobs
         /// </summary>
         protected override void ConfigDetailsView()
         {
-            View.Property(p=>p.MaterialsType).HasLabel("要统计的物料类型");
+            View.Property(p => p.MaterialsType).HasLabel("要统计的物料类型");
         }
     }
 }

@@ -111,10 +111,10 @@ namespace SIE.ZYF.Suppliers
         /// <summary>
         /// 地址与供应商的关系Id
         /// </summary>
-        public double SupAddressId
+        public double? SupAddressId
         {
-            get { return (double)this.GetRefId(SupAddressIdProperty); }
-            set { this.SetRefId(SupAddressIdProperty, value); }
+            get { return (double?)this.GetRefNullableId(SupAddressIdProperty); }
+            set { this.SetRefNullableId(SupAddressIdProperty, value); }
         }
 
         /// <summary>
@@ -132,8 +132,6 @@ namespace SIE.ZYF.Suppliers
             set { this.SetRefEntity(SupAddressProperty, value); }
         }
         #endregion
-
-
     }
 
     /// <summary>

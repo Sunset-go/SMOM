@@ -1,0 +1,199 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<XtraReportsLayoutSerializer SerializerVersion="19.2.5.0" Ref="1" ControlType="DevExpress.XtraReports.UI.XtraReport, DevExpress.XtraReports.v19.2, Version=19.2.5.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a" Name="采购订单单据打印" PageWidth="850" PageHeight="1100" Version="19.2" DataMember="PurchaseOrder" DataSource="#Ref-0">
+  <Extensions>
+    <Item1 Ref="2" Key="DataSerializationExtension" Value="DevExpress.XtraReports.Web.ReportDesigner.DefaultDataSerializer" />
+  </Extensions>
+  <Bands>
+    <Item1 Ref="3" ControlType="TopMarginBand" Name="TopMargin1">
+      <Controls>
+        <Item1 Ref="4" ControlType="XRTable" Name="table2" SizeF="194.79,25" LocationFloat="300, 75">
+          <Rows>
+            <Item1 Ref="5" ControlType="XRTableRow" Name="tableRow2" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="6" ControlType="XRTableCell" Name="tableCell4" Weight="1" Multiline="true" Text="总金额" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="7" UseFont="false" />
+                </Item1>
+                <Item2 Ref="8" ControlType="XRTableCell" Name="tableCell5" Weight="0.9479000000000001" Multiline="true" Text="备注" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="9" UseFont="false" />
+                </Item2>
+              </Cells>
+              <StylePriority Ref="10" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item1>
+        <Item2 Ref="11" ControlType="XRTable" Name="table1" SizeF="300,25" LocationFloat="0, 75">
+          <Rows>
+            <Item1 Ref="12" ControlType="XRTableRow" Name="tableRow1" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="13" ControlType="XRTableCell" Name="tableCell1" Weight="1" Multiline="true" Text="单号" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="14" UseFont="false" />
+                </Item1>
+                <Item2 Ref="15" ControlType="XRTableCell" Name="tableCell2" Weight="1" Multiline="true" Text="采购日期" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="16" UseFont="false" />
+                </Item2>
+                <Item3 Ref="17" ControlType="XRTableCell" Name="tableCell3" Weight="1" Multiline="true" Text="状态" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="18" UseFont="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="19" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item2>
+      </Controls>
+    </Item1>
+    <Item2 Ref="20" ControlType="DetailBand" Name="Detail1">
+      <Controls>
+        <Item1 Ref="21" ControlType="XRTable" Name="table6" SizeF="300,25" LocationFloat="300, 75">
+          <Rows>
+            <Item1 Ref="22" ControlType="XRTableRow" Name="tableRow6" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="23" ControlType="XRTableCell" Name="tableCell14" Weight="1" Multiline="true" Text="采购数量" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="24" UseFont="false" />
+                </Item1>
+                <Item2 Ref="25" ControlType="XRTableCell" Name="tableCell15" Weight="1" Multiline="true" Text="总金额" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="26" UseFont="false" />
+                </Item2>
+                <Item3 Ref="27" ControlType="XRTableCell" Name="tableCell16" Weight="1" Multiline="true" Text="描述" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="28" UseFont="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="29" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item1>
+        <Item2 Ref="30" ControlType="XRTable" Name="table5" SizeF="300,25" LocationFloat="0, 75">
+          <Rows>
+            <Item1 Ref="31" ControlType="XRTableRow" Name="tableRow5" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="32" ControlType="XRTableCell" Name="tableCell6" Weight="1" Multiline="true" Text="产品编码" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="33" UseFont="false" />
+                </Item1>
+                <Item2 Ref="34" ControlType="XRTableCell" Name="tableCell12" Weight="1" Multiline="true" Text="产品名称" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="35" UseFont="false" />
+                </Item2>
+                <Item3 Ref="36" ControlType="XRTableCell" Name="tableCell13" Weight="1" Multiline="true" Text="采购价" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <StylePriority Ref="37" UseFont="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="38" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item2>
+        <Item3 Ref="39" ControlType="XRTable" Name="table4" SizeF="194.78,25" LocationFloat="300, 0">
+          <Rows>
+            <Item1 Ref="40" ControlType="XRTableRow" Name="tableRow4" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="41" ControlType="XRTableCell" Name="tableCell10" Weight="1" Multiline="true" Text="tableCell10" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="42" EventName="BeforePrint" PropertyName="Text" Expression="[总金额]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="43" UseFont="false" />
+                </Item1>
+                <Item2 Ref="44" ControlType="XRTableCell" Name="tableCell11" Weight="0.9478" Multiline="true" Text="tableCell11" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="45" EventName="BeforePrint" PropertyName="Text" Expression="[备注]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="46" UseFont="false" />
+                </Item2>
+              </Cells>
+              <StylePriority Ref="47" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item3>
+        <Item4 Ref="48" ControlType="XRTable" Name="table3" SizeF="300,25" LocationFloat="0, 0">
+          <Rows>
+            <Item1 Ref="49" ControlType="XRTableRow" Name="tableRow3" Weight="1" Font="微软雅黑, 9pt">
+              <Cells>
+                <Item1 Ref="50" ControlType="XRTableCell" Name="tableCell7" Weight="1" Multiline="true" Text="tableCell7" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="51" EventName="BeforePrint" PropertyName="Text" Expression="[单号]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="52" UseFont="false" />
+                </Item1>
+                <Item2 Ref="53" ControlType="XRTableCell" Name="tableCell8" Weight="1" Multiline="true" Text="tableCell8" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="54" EventName="BeforePrint" PropertyName="Text" Expression="[采购日期]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="55" UseFont="false" />
+                </Item2>
+                <Item3 Ref="56" ControlType="XRTableCell" Name="tableCell9" Weight="1" Multiline="true" Text="tableCell9" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                  <ExpressionBindings>
+                    <Item1 Ref="57" EventName="BeforePrint" PropertyName="Text" Expression="[状态]" />
+                  </ExpressionBindings>
+                  <StylePriority Ref="58" UseFont="false" />
+                </Item3>
+              </Cells>
+              <StylePriority Ref="59" UseFont="false" />
+            </Item1>
+          </Rows>
+        </Item4>
+      </Controls>
+    </Item2>
+    <Item3 Ref="60" ControlType="DetailReportBand" Name="DetailReport1" Level="0" DataMember="OrderDetail_PurchaseOrderList" DataSource="#Ref-0">
+      <Bands>
+        <Item1 Ref="61" ControlType="DetailBand" Name="Detail2">
+          <Controls>
+            <Item1 Ref="62" ControlType="XRTable" Name="table8" SizeF="300,25" LocationFloat="300, 0">
+              <Rows>
+                <Item1 Ref="63" ControlType="XRTableRow" Name="tableRow8" Weight="1" Font="微软雅黑, 9pt">
+                  <Cells>
+                    <Item1 Ref="64" ControlType="XRTableCell" Name="tableCell20" Weight="1" Multiline="true" Text="tableCell20" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="65" EventName="BeforePrint" PropertyName="Text" Expression="[采购数量]" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="66" UseFont="false" />
+                    </Item1>
+                    <Item2 Ref="67" ControlType="XRTableCell" Name="tableCell21" Weight="1" Multiline="true" Text="tableCell21" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="68" EventName="BeforePrint" PropertyName="Text" Expression="[总金额]" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="69" UseFont="false" />
+                    </Item2>
+                    <Item3 Ref="70" ControlType="XRTableCell" Name="tableCell22" Weight="1" Multiline="true" Text="tableCell22" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="71" EventName="BeforePrint" PropertyName="Text" Expression="[描述]" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="72" UseFont="false" />
+                    </Item3>
+                  </Cells>
+                  <StylePriority Ref="73" UseFont="false" />
+                </Item1>
+              </Rows>
+            </Item1>
+            <Item2 Ref="74" ControlType="XRTable" Name="table7" SizeF="300,25" LocationFloat="0, 0">
+              <Rows>
+                <Item1 Ref="75" ControlType="XRTableRow" Name="tableRow7" Weight="1" Font="微软雅黑, 9pt">
+                  <Cells>
+                    <Item1 Ref="76" ControlType="XRTableCell" Name="tableCell17" Weight="1" Multiline="true" Text="tableCell17" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="77" EventName="BeforePrint" PropertyName="Text" Expression="[产品编码]" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="78" UseFont="false" />
+                    </Item1>
+                    <Item2 Ref="79" ControlType="XRTableCell" Name="tableCell18" Weight="1" Multiline="true" Text="tableCell18" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="80" EventName="BeforePrint" PropertyName="Text" Expression="[产品名称]" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="81" UseFont="false" />
+                    </Item2>
+                    <Item3 Ref="82" ControlType="XRTableCell" Name="tableCell19" Weight="1" Multiline="true" Text="tableCell19" Font="微软雅黑, 9pt" Padding="2,2,0,0,100">
+                      <ExpressionBindings>
+                        <Item1 Ref="83" EventName="BeforePrint" PropertyName="Text" Expression="[采购价]" />
+                      </ExpressionBindings>
+                      <StylePriority Ref="84" UseFont="false" />
+                    </Item3>
+                  </Cells>
+                  <StylePriority Ref="85" UseFont="false" />
+                </Item1>
+              </Rows>
+            </Item2>
+          </Controls>
+        </Item1>
+      </Bands>
+    </Item3>
+    <Item4 Ref="86" ControlType="BottomMarginBand" Name="BottomMargin1" />
+  </Bands>
+  <ComponentStorage>
+    <Item1 Ref="0" ObjectType="DevExpress.DataAccess.Sql.SqlDataSource,DevExpress.DataAccess.v19.2" Name="DataSource" Base64="PFNxbERhdGFTb3VyY2UgTmFtZT0iRGF0YVNvdXJjZSI+PENvbm5lY3Rpb24gTmFtZT0iZGF0YSIgUHJvdmlkZXJLZXk9IkluTWVtb3J5U2V0RnVsbCI+PFBhcmFtZXRlcnM+PFBhcmFtZXRlciBOYW1lPSJkYXRhYmFzZSIgVmFsdWU9IkQ6XFNpRVxTTU9NLkV4YW0uVjEwLjFcUHJvamVjdHNcU01PTVxXZWJDbGllbnRcYmluXERlYnVnXG5ldGNvcmVhcHAzLjFcVGVtcGxhdGVzXDIwMjUtMDctMTdcMDQxNDgwZmUxY2JjNGJkNjhjNjZkZjQ1NTZlOGFjZGZcZGF0YS54bWwiIC8+PFBhcmFtZXRlciBOYW1lPSJyZWFkIG9ubHkiIFZhbHVlPSIxIiAvPjxQYXJhbWV0ZXIgTmFtZT0iZ2VuZXJhdGVDb25uZWN0aW9uSGVscGVyIiBWYWx1ZT0iZmFsc2UiIC8+PC9QYXJhbWV0ZXJzPjwvQ29ubmVjdGlvbj48UXVlcnkgVHlwZT0iU2VsZWN0UXVlcnkiIE5hbWU9IlB1cmNoYXNlT3JkZXIiPjxUYWJsZXM+PFRhYmxlIE5hbWU9IlB1cmNoYXNlT3JkZXIiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iUHVyY2hhc2VPcmRlciIgTmFtZT0i5Y2V5Y+3IiAvPjxDb2x1bW4gVGFibGU9IlB1cmNoYXNlT3JkZXIiIE5hbWU9IumHh+i0reaXpeacnyIgLz48Q29sdW1uIFRhYmxlPSJQdXJjaGFzZU9yZGVyIiBOYW1lPSLmgLvph5Hpop0iIC8+PENvbHVtbiBUYWJsZT0iUHVyY2hhc2VPcmRlciIgTmFtZT0i54q25oCBIiAvPjxDb2x1bW4gVGFibGU9IlB1cmNoYXNlT3JkZXIiIE5hbWU9IuWkh+azqCIgLz48Q29sdW1uIFRhYmxlPSJQdXJjaGFzZU9yZGVyIiBOYW1lPSLliJvlu7rkuroiIC8+PENvbHVtbiBUYWJsZT0iUHVyY2hhc2VPcmRlciIgTmFtZT0i5Yib5bu65pe26Ze0IiAvPjxDb2x1bW4gVGFibGU9IlB1cmNoYXNlT3JkZXIiIE5hbWU9IuS/ruaUueS6uiIgLz48Q29sdW1uIFRhYmxlPSJQdXJjaGFzZU9yZGVyIiBOYW1lPSLkv67mlLnml7bpl7QiIC8+PENvbHVtbiBUYWJsZT0iUHVyY2hhc2VPcmRlciIgTmFtZT0iSWQiIC8+PC9Db2x1bW5zPjwvUXVlcnk+PFF1ZXJ5IFR5cGU9IlNlbGVjdFF1ZXJ5IiBOYW1lPSJPcmRlckRldGFpbF9QdXJjaGFzZU9yZGVyTGlzdCI+PFRhYmxlcz48VGFibGUgTmFtZT0iT3JkZXJEZXRhaWxfUHVyY2hhc2VPcmRlckxpc3QiIC8+PC9UYWJsZXM+PENvbHVtbnM+PENvbHVtbiBUYWJsZT0iT3JkZXJEZXRhaWxfUHVyY2hhc2VPcmRlckxpc3QiIE5hbWU9IuS6p+WTgee8lueggSIgLz48Q29sdW1uIFRhYmxlPSJPcmRlckRldGFpbF9QdXJjaGFzZU9yZGVyTGlzdCIgTmFtZT0i5Lqn5ZOB5ZCN56ewIiAvPjxDb2x1bW4gVGFibGU9Ik9yZGVyRGV0YWlsX1B1cmNoYXNlT3JkZXJMaXN0IiBOYW1lPSLph4fotK3ku7ciIC8+PENvbHVtbiBUYWJsZT0iT3JkZXJEZXRhaWxfUHVyY2hhc2VPcmRlckxpc3QiIE5hbWU9IumHh+i0reaVsOmHjyIgLz48Q29sdW1uIFRhYmxlPSJPcmRlckRldGFpbF9QdXJjaGFzZU9yZGVyTGlzdCIgTmFtZT0i5oC76YeR6aKdIiAvPjxDb2x1bW4gVGFibGU9Ik9yZGVyRGV0YWlsX1B1cmNoYXNlT3JkZXJMaXN0IiBOYW1lPSLmj4/ov7AiIC8+PENvbHVtbiBUYWJsZT0iT3JkZXJEZXRhaWxfUHVyY2hhc2VPcmRlckxpc3QiIE5hbWU9IuS/ruaUueS6uiIgLz48Q29sdW1uIFRhYmxlPSJPcmRlckRldGFpbF9QdXJjaGFzZU9yZGVyTGlzdCIgTmFtZT0i5L+u5pS55pe26Ze0IiAvPjxDb2x1bW4gVGFibGU9Ik9yZGVyRGV0YWlsX1B1cmNoYXNlT3JkZXJMaXN0IiBOYW1lPSJJZCIgLz48Q29sdW1uIFRhYmxlPSJPcmRlckRldGFpbF9QdXJjaGFzZU9yZGVyTGlzdCIgTmFtZT0iUHVyY2hhc2VPcmRlcklkIiAvPjwvQ29sdW1ucz48L1F1ZXJ5PjxSZWxhdGlvbiBNYXN0ZXI9IlB1cmNoYXNlT3JkZXIiIERldGFpbD0iT3JkZXJEZXRhaWxfUHVyY2hhc2VPcmRlckxpc3QiPjxLZXlDb2x1bW4gTWFzdGVyPSJJZCIgRGV0YWlsPSJQdXJjaGFzZU9yZGVySWQiIC8+PC9SZWxhdGlvbj48UmVzdWx0U2NoZW1hPjxEYXRhU2V0IE5hbWU9IkRhdGFTb3VyY2UiPjxWaWV3IE5hbWU9IlB1cmNoYXNlT3JkZXIiPjxGaWVsZCBOYW1lPSLljZXlj7ciIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0i6YeH6LSt5pel5pyfIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IuaAu+mHkeminSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSLnirbmgIEiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0i5aSH5rOoIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IuWIm+W7uuS6uiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSLliJvlu7rml7bpl7QiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0i5L+u5pS55Lq6IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IuS/ruaUueaXtumXtCIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSJJZCIgVHlwZT0iU3RyaW5nIiAvPjwvVmlldz48VmlldyBOYW1lPSJPcmRlckRldGFpbF9QdXJjaGFzZU9yZGVyTGlzdCI+PEZpZWxkIE5hbWU9IuS6p+WTgee8lueggSIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSLkuqflk4HlkI3np7AiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0i6YeH6LSt5Lu3IiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IumHh+i0reaVsOmHjyIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSLmgLvph5Hpop0iIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0i5o+P6L+wIiBUeXBlPSJTdHJpbmciIC8+PEZpZWxkIE5hbWU9IuS/ruaUueS6uiIgVHlwZT0iU3RyaW5nIiAvPjxGaWVsZCBOYW1lPSLkv67mlLnml7bpl7QiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iSWQiIFR5cGU9IlN0cmluZyIgLz48RmllbGQgTmFtZT0iUHVyY2hhc2VPcmRlcklkIiBUeXBlPSJTdHJpbmciIC8+PC9WaWV3PjxSZWxhdGlvbiBNYXN0ZXI9IlB1cmNoYXNlT3JkZXIiIERldGFpbD0iT3JkZXJEZXRhaWxfUHVyY2hhc2VPcmRlckxpc3QiPjxLZXlDb2x1bW4gTWFzdGVyPSJJZCIgRGV0YWlsPSJQdXJjaGFzZU9yZGVySWQiIC8+PC9SZWxhdGlvbj48L0RhdGFTZXQ+PC9SZXN1bHRTY2hlbWE+PENvbm5lY3Rpb25PcHRpb25zIENsb3NlQ29ubmVjdGlvbj0idHJ1ZSIgLz48L1NxbERhdGFTb3VyY2U+" />
+  </ComponentStorage>
+</XtraReportsLayoutSerializer>

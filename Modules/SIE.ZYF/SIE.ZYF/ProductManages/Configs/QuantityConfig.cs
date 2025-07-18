@@ -1,7 +1,4 @@
 ﻿using SIE.Common.Configs;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace SIE.ZYF.ProductManages.Configs
 {

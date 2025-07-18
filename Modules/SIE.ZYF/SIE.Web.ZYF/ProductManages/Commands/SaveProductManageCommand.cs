@@ -10,9 +10,9 @@ namespace SIE.Web.ZYF.ProductManages.Commands
         {
             if (entity is ProductManage product)
             {
-                RT.Service.Resolve<ProductManageController>().UpdataModTimes(product.Id, product.ModifyCount);
+                product.ModifyCount += 1;
+                base.DoSave(product); // 调用父类方法
             }
-            base.OnSaved(entity); // 调用父类方法
         }
     }
 }

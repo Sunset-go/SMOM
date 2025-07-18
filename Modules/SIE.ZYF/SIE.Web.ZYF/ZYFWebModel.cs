@@ -1,6 +1,7 @@
 ﻿using SIE.MetaModel;
 using SIE.Modules;
 using SIE.Web.ZYF;
+using SIE.Web.ZYF.OrderCollections;
 using System;
 [assembly: Module(typeof(ZYFWebModel))]
 namespace SIE.Web.ZYF
@@ -49,6 +50,12 @@ namespace SIE.Web.ZYF
             {
                 EntityType = typeof(SIE.ZYF.PurchaseOrders.PurchaseOrder),
                 Label = "采购订单"
+            },
+            new WebModuleMeta()
+            {
+                EntityType = typeof(OrderCollectionViewModel),
+                Label = "订单采集",
+                ViewGroup = ViewConfig.DetailsView
             }
             );
         }

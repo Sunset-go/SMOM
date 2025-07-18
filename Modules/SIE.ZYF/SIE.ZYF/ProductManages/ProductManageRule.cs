@@ -20,8 +20,7 @@ namespace SIE.ZYF.ProductManages
 
         protected override void Validate(IEntity entity, RuleArgs e)
         {
-            ProductManage productManage = entity as ProductManage;
-            if (productManage != null)
+            if (entity is ProductManage productManage)
             {
                 if (productManage.Price <= 0)
                 {

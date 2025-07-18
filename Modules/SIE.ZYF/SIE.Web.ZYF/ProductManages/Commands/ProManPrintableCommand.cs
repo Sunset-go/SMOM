@@ -6,6 +6,9 @@ using System.Collections.Generic;
 
 namespace SIE.Web.ZYF.ProductManages.Commands
 {
+    /// <summary>
+    /// 产品管理打印命令
+    /// </summary>
     public class ProManPrintableCommand : ViewCommand
     {
         protected override object Excute(ViewArgs args, string scope)

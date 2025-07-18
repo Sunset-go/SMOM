@@ -1,6 +1,6 @@
 ﻿using SIE.ZYF.ProductManages.Configs;
 
-namespace SIE.ZYF.ProductManages
+namespace SIE.Web.ZYF.ProductManages
 {
     /// <summary>
     /// 采购数量视图配置

@@ -74,7 +74,7 @@ namespace SIE.Web.ZYF.Suppliers
                     return new EntityList<SupplierPhone>();
                 }
                 return concat;
-            },SupplierPhoneViewConfig.SupplierConcatViewGroup).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
+            }, SupplierPhoneViewConfig.SupplierConcatViewGroup).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
             #endregion
         }
 
@@ -138,7 +138,7 @@ namespace SIE.Web.ZYF.Suppliers
                     return new EntityList<SupplierPhone>();
                 }
                 return concat;
-            },SupplierPhoneViewConfig.SupplierConcatReadOnlyViewGroup).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
+            }, SupplierPhoneViewConfig.SupplierConcatReadOnlyViewGroup).HasLabel("供应商联系人").Show(ChildShowInWhere.All);
             #endregion
         }
 
